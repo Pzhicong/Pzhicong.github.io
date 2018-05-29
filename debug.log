@@ -10927,3 +10927,33 @@
 {"name":"hexo","hostname":"YFBL4U10K9S8YMW","pid":13676,"level":40,"msg":"===============================================================","time":"2018-05-29T03:33:28.423Z","v":0}
 {"name":"hexo","hostname":"YFBL4U10K9S8YMW","pid":13676,"level":20,"msg":"Rendering post: \u001b[35m2016/05/29/marginover/index.html\u001b[39m","time":"2018-05-29T03:33:36.794Z","v":0}
 {"name":"hexo","hostname":"YFBL4U10K9S8YMW","pid":13676,"level":20,"msg":"Rendering post: \u001b[35m2016/05/29/marginover/index.html\u001b[39m","time":"2018-05-29T05:47:50.793Z","v":0}
+{"name":"hexo","hostname":"YFBL4U10K9S8YMW","pid":13676,"level":20,"msg":"Generator: \u001b[35mpage\u001b[39m","time":"2018-05-29T07:01:48.671Z","v":0}
+{"name":"hexo","hostname":"YFBL4U10K9S8YMW","pid":13676,"level":20,"msg":"Generator: \u001b[35mpost\u001b[39m","time":"2018-05-29T07:01:48.673Z","v":0}
+{"name":"hexo","hostname":"YFBL4U10K9S8YMW","pid":13676,"level":20,"msg":"Generator: \u001b[35mindex\u001b[39m","time":"2018-05-29T07:01:48.674Z","v":0}
+{"name":"hexo","hostname":"YFBL4U10K9S8YMW","pid":13676,"level":20,"msg":"Generator: \u001b[35marchive\u001b[39m","time":"2018-05-29T07:01:48.674Z","v":0}
+{"name":"hexo","hostname":"YFBL4U10K9S8YMW","pid":13676,"level":20,"msg":"Generator: \u001b[35mcategory\u001b[39m","time":"2018-05-29T07:01:48.676Z","v":0}
+{"name":"hexo","hostname":"YFBL4U10K9S8YMW","pid":13676,"level":20,"msg":"Generator: \u001b[35mtag\u001b[39m","time":"2018-05-29T07:01:48.676Z","v":0}
+{"name":"hexo","hostname":"YFBL4U10K9S8YMW","pid":13676,"level":20,"msg":"Generator: \u001b[35masset\u001b[39m","time":"2018-05-29T07:01:48.680Z","v":0}
+{"name":"hexo","hostname":"YFBL4U10K9S8YMW","pid":13676,"level":40,"msg":"===============================================================","time":"2018-05-29T07:01:48.693Z","v":0}
+{"name":"hexo","hostname":"YFBL4U10K9S8YMW","pid":13676,"level":40,"msg":"========================= ATTENTION! ==========================","time":"2018-05-29T07:01:48.702Z","v":0}
+{"name":"hexo","hostname":"YFBL4U10K9S8YMW","pid":13676,"level":40,"msg":"===============================================================","time":"2018-05-29T07:01:48.703Z","v":0}
+{"name":"hexo","hostname":"YFBL4U10K9S8YMW","pid":13676,"level":40,"msg":" NexT repository is moving here: https://github.com/theme-next ","time":"2018-05-29T07:01:48.704Z","v":0}
+{"name":"hexo","hostname":"YFBL4U10K9S8YMW","pid":13676,"level":40,"msg":"===============================================================","time":"2018-05-29T07:01:48.704Z","v":0}
+{"name":"hexo","hostname":"YFBL4U10K9S8YMW","pid":13676,"level":40,"msg":" It's rebase to v6.0.0 and future maintenance will resume there","time":"2018-05-29T07:01:48.704Z","v":0}
+{"name":"hexo","hostname":"YFBL4U10K9S8YMW","pid":13676,"level":40,"msg":"===============================================================","time":"2018-05-29T07:01:48.705Z","v":0}
+{"name":"hexo","hostname":"YFBL4U10K9S8YMW","pid":13676,"level":20,"msg":"Generator: \u001b[35mpage\u001b[39m","time":"2018-05-29T07:01:48.788Z","v":0}
+{"name":"hexo","hostname":"YFBL4U10K9S8YMW","pid":13676,"level":20,"msg":"Generator: \u001b[35mpost\u001b[39m","time":"2018-05-29T07:01:48.789Z","v":0}
+{"name":"hexo","hostname":"YFBL4U10K9S8YMW","pid":13676,"level":20,"msg":"Generator: \u001b[35mindex\u001b[39m","time":"2018-05-29T07:01:48.789Z","v":0}
+{"name":"hexo","hostname":"YFBL4U10K9S8YMW","pid":13676,"level":20,"msg":"Generator: \u001b[35marchive\u001b[39m","time":"2018-05-29T07:01:48.790Z","v":0}
+{"name":"hexo","hostname":"YFBL4U10K9S8YMW","pid":13676,"level":20,"msg":"Generator: \u001b[35mcategory\u001b[39m","time":"2018-05-29T07:01:48.790Z","v":0}
+{"name":"hexo","hostname":"YFBL4U10K9S8YMW","pid":13676,"level":20,"msg":"Generator: \u001b[35mtag\u001b[39m","time":"2018-05-29T07:01:48.791Z","v":0}
+{"name":"hexo","hostname":"YFBL4U10K9S8YMW","pid":13676,"level":20,"msg":"Generator: \u001b[35masset\u001b[39m","time":"2018-05-29T07:01:48.792Z","v":0}
+{"name":"hexo","hostname":"YFBL4U10K9S8YMW","pid":13676,"level":40,"msg":"===============================================================","time":"2018-05-29T07:01:48.804Z","v":0}
+{"name":"hexo","hostname":"YFBL4U10K9S8YMW","pid":13676,"level":40,"msg":"========================= ATTENTION! ==========================","time":"2018-05-29T07:01:48.805Z","v":0}
+{"name":"hexo","hostname":"YFBL4U10K9S8YMW","pid":13676,"level":40,"msg":"===============================================================","time":"2018-05-29T07:01:48.809Z","v":0}
+{"name":"hexo","hostname":"YFBL4U10K9S8YMW","pid":13676,"level":40,"msg":" NexT repository is moving here: https://github.com/theme-next ","time":"2018-05-29T07:01:48.809Z","v":0}
+{"name":"hexo","hostname":"YFBL4U10K9S8YMW","pid":13676,"level":40,"msg":"===============================================================","time":"2018-05-29T07:01:48.809Z","v":0}
+{"name":"hexo","hostname":"YFBL4U10K9S8YMW","pid":13676,"level":40,"msg":" It's rebase to v6.0.0 and future maintenance will resume there","time":"2018-05-29T07:01:48.810Z","v":0}
+{"name":"hexo","hostname":"YFBL4U10K9S8YMW","pid":13676,"level":40,"msg":"===============================================================","time":"2018-05-29T07:01:48.810Z","v":0}
+{"name":"hexo","hostname":"YFBL4U10K9S8YMW","pid":13676,"level":30,"msg":"See you again","time":"2018-05-29T07:01:52.622Z","v":0}
+{"name":"hexo","hostname":"YFBL4U10K9S8YMW","pid":13676,"level":20,"msg":"Database saved","time":"2018-05-29T07:01:52.663Z","v":0}
