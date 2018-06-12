@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="我的剑圣不打野">
 <meta property="og:description" content="生命在于折腾，又把博客折腾到Hexo了。给Hexo点赞。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-12T03:06:41.190Z">
+<meta property="og:updated_time" content="2018-06-12T08:53:21.897Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Hexo搭建个人博客">
 <meta name="twitter:description" content="生命在于折腾，又把博客折腾到Hexo了。给Hexo点赞。">
@@ -337,10 +337,19 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>使用HEXO，是非常简单的一件事。测试文本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></p>
-
+        <h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">"My New Post"</span> || hexo new post <span class="string">"postName"</span></span><br><span class="line">hexo s --debug</span><br><span class="line">hexo clean</span><br><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
+<h2 id="重装之痛"><a href="#重装之痛" class="headerlink" title="重装之痛"></a>重装之痛</h2><h4 id="我是根据这个来建站的"><a href="#我是根据这个来建站的" class="headerlink" title="我是根据这个来建站的"></a>我是根据这个来建站的</h4><p><a href="https://www.cnblogs.com/fengxiongZz/p/7707219.html" target="_blank" rel="noopener">建站</a><br><a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">文档</a></p>
+<h2 id="FOR个人（仔细看建站链接）"><a href="#FOR个人（仔细看建站链接）" class="headerlink" title="FOR个人（仔细看建站链接）"></a>FOR个人（仔细看建站链接）</h2><pre><code>1.下载github的代码
+2.切换远程分支 (git checkout -b release origin/release)
+3.全局安装hexo (npm install hexo -g)（可能需要npm install hexo-deployer-git --save）
+4.在目录下安装 npm install
+5.记得把自己已改过的next主题下载下来，覆盖本地的
+6.有可能git有问题，貌似说没配置path变量，可以试试
+7.all is ok
+</code></pre><h2 id="setting-sync配置-根据"><a href="#setting-sync配置-根据" class="headerlink" title="setting sync配置 根据"></a>setting sync配置 <a href="https://juejin.im/post/5a08d1d6f265da430f31950e" target="_blank" rel="noopener">根据</a></h2><pre><code>1.F1,sync reset extent
+2.先ctrl+shift+D,按需要填token，giftID
+3.修改配置，不能直接同步这些配置（比如颜色主题之类的）
+</code></pre>
       
     </div>
     
@@ -459,7 +468,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -514,7 +523,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用命令"><span class="nav-number">1.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重装之痛"><span class="nav-number">2.</span> <span class="nav-text">重装之痛</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#我是根据这个来建站的"><span class="nav-number">2.0.1.</span> <span class="nav-text">我是根据这个来建站的</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FOR个人（仔细看建站链接）"><span class="nav-number">3.</span> <span class="nav-text">FOR个人（仔细看建站链接）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#setting-sync配置-根据"><span class="nav-number">4.</span> <span class="nav-text">setting sync配置 根据</span></a></li></ol></div>
             
 
           </div>
