@@ -8,16 +8,32 @@ tags: [Hexo]
 keywords: Hexo, Blog
 description: 生命在于折腾，又把博客折腾到Hexo了。给Hexo点赞。
 ---
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
-## Quick Start
+## 常用命令
 
-### Create a new post
 
 ``` bash
-$ hexo new "My New Post"
+hexo new "My New Post" || hexo new post "postName"
+hexo s --debug
+hexo clean
+hexo d -g
 ```
-使用HEXO，是非常简单的一件事。测试文本
-``` bash
-$ hexo deploy
-```
+
+## 重装之痛
+#### 我是根据这个来建站的 
+[建站](https://www.cnblogs.com/fengxiongZz/p/7707219.html)
+[文档](https://hexo.io/zh-cn/docs/index.html)
+
+## FOR个人（仔细看建站链接）
+    1.下载github的代码
+    2.切换远程分支 (git checkout -b release origin/release)
+    3.全局安装hexo (npm install hexo -g)（可能需要npm install hexo-deployer-git --save）
+    4.在目录下安装 npm install
+    5.记得把自己已改过的next主题下载下来，覆盖本地的
+    6.有可能git有问题，貌似说没配置path变量，可以试试
+    7.all is ok
+
+## setting sync配置 [根据](https://juejin.im/post/5a08d1d6f265da430f31950e)
+    1.F1,sync reset extent
+    2.先ctrl+shift+D,按需要填token，giftID
+    3.修改配置，不能直接同步这些配置（比如颜色主题之类的）
