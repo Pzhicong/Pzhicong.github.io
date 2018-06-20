@@ -143,7 +143,7 @@ description: CSS、JS是这样阻塞DOM解析和渲染的
 
 ## 小结
 
-综上所述，我们得出这样的结论：
+综上所述，我们得出这样的结论：[链接](https://www.cnblogs.com/yingsong/p/6170780.html)
 
 * `CSS` 不会阻塞 `DOM` 的解析，但会阻塞 `DOM` 渲染。
 * JavaScript 执行会暂停，直到CSSOM准备就绪
