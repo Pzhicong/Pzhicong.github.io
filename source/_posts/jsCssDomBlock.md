@@ -7,6 +7,12 @@ description: CSS、JS是这样阻塞DOM解析和渲染的
 
 # 原来 CSS 与 JS 是这样阻塞 DOM 解析和渲染的
 
+## 引用
+![clean](/images/paint/yuanli.png)
+![clean](/images/paint/lc.png)
+![clean](/images/paint/sx.png)
+![clean](/images/paint/defer.png)
+
 由于关系到文件的读取，那是肯定需要服务器的，我会把全部的文件放在[github](https://github.com/Pzhicong/css-js-dom)上
 
 `node`端唯一需要解释一下的是这个函数：
@@ -140,8 +146,9 @@ description: CSS、JS是这样阻塞DOM解析和渲染的
 综上所述，我们得出这样的结论：
 
 * `CSS` 不会阻塞 `DOM` 的解析，但会阻塞 `DOM` 渲染。
+* JavaScript 执行会暂停，直到CSSOM准备就绪
 * `JS` 阻塞 `DOM` 解析，但浏览器会"偷看"`DOM`，预先下载相关资源。
-* 浏览器遇到 `<script>`且没有`defer`或`async`属性的 标签时，会触发页面渲染，因而如果前面`CSS`资源尚未加载完毕时，浏览器会等待它加载完毕在执行脚本。
+* 浏览器遇到 `<script>`且没有`defer`或`async`属性的 标签时，会触发页面渲染，因而如果前面`CSS`资源尚未加载完毕时，浏览器会等待它加载完毕在执行脚本。类似firstpage,[文章最后](http://www.cnblogs.com/caizhenbo/p/6679478.html)
 
 所以，你现在明白为何`<script>`最好放底部，`<link>`最好放头部，如果头部同时有`<script>`与`<link>`的情况下，最好将`<script>`放在`<link>`上面了吗？
 
