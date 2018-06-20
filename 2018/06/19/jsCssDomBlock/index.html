@@ -87,10 +87,15 @@
 <meta property="og:site_name" content="我的剑圣不打野">
 <meta property="og:description" content="CSS、JS是这样阻塞DOM解析和渲染的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-19T10:20:05.833Z">
+<meta property="og:image" content="http://yoursite.com/images/paint/yuanli.png">
+<meta property="og:image" content="http://yoursite.com/images/paint/lc.png">
+<meta property="og:image" content="http://yoursite.com/images/paint/sx.png">
+<meta property="og:image" content="http://yoursite.com/images/paint/defer.png">
+<meta property="og:updated_time" content="2018-06-20T02:51:06.911Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浏览器渲染-css阻塞">
 <meta name="twitter:description" content="CSS、JS是这样阻塞DOM解析和渲染的">
+<meta name="twitter:image" content="http://yoursite.com/images/paint/yuanli.png">
 
 
 
@@ -315,7 +320,8 @@
       
 
       
-        <h1 id="原来-CSS-与-JS-是这样阻塞-DOM-解析和渲染的"><a href="#原来-CSS-与-JS-是这样阻塞-DOM-解析和渲染的" class="headerlink" title="原来 CSS 与 JS 是这样阻塞 DOM 解析和渲染的"></a>原来 CSS 与 JS 是这样阻塞 DOM 解析和渲染的</h1><p>由于关系到文件的读取，那是肯定需要服务器的，我会把全部的文件放在<a href="https://github.com/Pzhicong/css-js-dom" target="_blank" rel="noopener">github</a>上</p>
+        <h1 id="原来-CSS-与-JS-是这样阻塞-DOM-解析和渲染的"><a href="#原来-CSS-与-JS-是这样阻塞-DOM-解析和渲染的" class="headerlink" title="原来 CSS 与 JS 是这样阻塞 DOM 解析和渲染的"></a>原来 CSS 与 JS 是这样阻塞 DOM 解析和渲染的</h1><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p><img src="/images/paint/yuanli.png" alt="clean"><br><img src="/images/paint/lc.png" alt="clean"><br><img src="/images/paint/sx.png" alt="clean"><br><img src="/images/paint/defer.png" alt="clean"></p>
+<p>由于关系到文件的读取，那是肯定需要服务器的，我会把全部的文件放在<a href="https://github.com/Pzhicong/css-js-dom" target="_blank" rel="noopener">github</a>上</p>
 <p><code>node</code>端唯一需要解释一下的是这个函数：</p>
 <pre><code>function sleep(time) {
   return new Promise(function(res) {
@@ -381,8 +387,9 @@ console.log(div);
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>综上所述，我们得出这样的结论：</p>
 <ul>
 <li><code>CSS</code> 不会阻塞 <code>DOM</code> 的解析，但会阻塞 <code>DOM</code> 渲染。</li>
+<li>JavaScript 执行会暂停，直到CSSOM准备就绪</li>
 <li><code>JS</code> 阻塞 <code>DOM</code> 解析，但浏览器会”偷看”<code>DOM</code>，预先下载相关资源。</li>
-<li>浏览器遇到 <code>&lt;script&gt;</code>且没有<code>defer</code>或<code>async</code>属性的 标签时，会触发页面渲染，因而如果前面<code>CSS</code>资源尚未加载完毕时，浏览器会等待它加载完毕在执行脚本。</li>
+<li>浏览器遇到 <code>&lt;script&gt;</code>且没有<code>defer</code>或<code>async</code>属性的 标签时，会触发页面渲染，因而如果前面<code>CSS</code>资源尚未加载完毕时，浏览器会等待它加载完毕在执行脚本。类似firstpage,<a href="http://www.cnblogs.com/caizhenbo/p/6679478.html" target="_blank" rel="noopener">文章最后</a></li>
 </ul>
 <p>所以，你现在明白为何<code>&lt;script&gt;</code>最好放底部，<code>&lt;link&gt;</code>最好放头部，如果头部同时有<code>&lt;script&gt;</code>与<code>&lt;link&gt;</code>的情况下，最好将<code>&lt;script&gt;</code>放在<code>&lt;link&gt;</code>上面了吗？</p>
 <p>感谢各位看官大人看到这里，希望本文对你有所帮助，有不同或更好意见的大佬，还望不吝赐教！谢谢~</p>
@@ -560,7 +567,7 @@ console.log(div);
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#原来-CSS-与-JS-是这样阻塞-DOM-解析和渲染的"><span class="nav-number">1.</span> <span class="nav-text">原来 CSS 与 JS 是这样阻塞 DOM 解析和渲染的</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS"><span class="nav-number">1.1.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-不会阻塞-DOM-的解析"><span class="nav-number">1.1.1.</span> <span class="nav-text">CSS 不会阻塞 DOM 的解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-阻塞页面渲染"><span class="nav-number">1.1.2.</span> <span class="nav-text">CSS 阻塞页面渲染</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS"><span class="nav-number">1.2.</span> <span class="nav-text">JS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JS-阻塞-DOM-解析"><span class="nav-number">1.2.1.</span> <span class="nav-text">JS 阻塞 DOM 解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器遇到-lt-script-gt-标签时，会触发页面渲染"><span class="nav-number">1.2.2.</span> <span class="nav-text">浏览器遇到 &lt;script&gt; 标签时，会触发页面渲染</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">1.3.</span> <span class="nav-text">小结</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#原来-CSS-与-JS-是这样阻塞-DOM-解析和渲染的"><span class="nav-number">1.</span> <span class="nav-text">原来 CSS 与 JS 是这样阻塞 DOM 解析和渲染的</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#引用"><span class="nav-number">1.1.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS"><span class="nav-number">1.2.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-不会阻塞-DOM-的解析"><span class="nav-number">1.2.1.</span> <span class="nav-text">CSS 不会阻塞 DOM 的解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-阻塞页面渲染"><span class="nav-number">1.2.2.</span> <span class="nav-text">CSS 阻塞页面渲染</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS"><span class="nav-number">1.3.</span> <span class="nav-text">JS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JS-阻塞-DOM-解析"><span class="nav-number">1.3.1.</span> <span class="nav-text">JS 阻塞 DOM 解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器遇到-lt-script-gt-标签时，会触发页面渲染"><span class="nav-number">1.3.2.</span> <span class="nav-text">浏览器遇到 &lt;script&gt; 标签时，会触发页面渲染</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">1.4.</span> <span class="nav-text">小结</span></a></li></ol></li></ol></div>
             
 
           </div>
