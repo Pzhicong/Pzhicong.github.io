@@ -91,7 +91,7 @@
 <meta property="og:image" content="http://yoursite.com/images/paint/lc.png">
 <meta property="og:image" content="http://yoursite.com/images/paint/sx.png">
 <meta property="og:image" content="http://yoursite.com/images/paint/defer.png">
-<meta property="og:updated_time" content="2018-06-20T02:51:06.911Z">
+<meta property="og:updated_time" content="2018-06-20T03:08:54.850Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浏览器渲染-css阻塞">
 <meta name="twitter:description" content="CSS、JS是这样阻塞DOM解析和渲染的">
@@ -384,7 +384,7 @@ console.log(div);
 &lt;/body&gt;
 </code></pre><p>这个例子也是很极端的例子，但不妨碍它透露给我们很多重要的信息。想象一下，页面会怎样呢？</p>
 <p>答案是先浅绿色，再浅灰色，最后浅蓝色。由此可见，每次碰到<code>&lt;script&gt;</code>标签时，浏览器都会渲染一次页面。这是基于同样的理由，浏览器不知道脚本的内容，因而碰到脚本时，只好先渲染页面，确保脚本能获取到最新的<code>DOM</code>元素信息，尽管脚本可能不需要这些信息。</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>综上所述，我们得出这样的结论：</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>综上所述，我们得出这样的结论：<a href="https://www.cnblogs.com/yingsong/p/6170780.html" target="_blank" rel="noopener">链接</a></p>
 <ul>
 <li><code>CSS</code> 不会阻塞 <code>DOM</code> 的解析，但会阻塞 <code>DOM</code> 渲染。</li>
 <li>JavaScript 执行会暂停，直到CSSOM准备就绪</li>
