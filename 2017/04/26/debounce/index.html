@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, Blog" />
+  <meta name="keywords" content="js," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="生命在于折腾，又把博客折腾到Hexo了。给Hexo点赞。">
-<meta name="keywords" content="Hexo, Blog">
+<meta name="description" content="窗口的resize、scroll、输入框内容校验等操作时，采用debounce（防抖）和throttle（节流）的方式来减少触发的频率。">
+<meta name="keywords" content="js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用Hexo搭建个人博客">
-<meta property="og:url" content="http://yoursite.com/2016/05/03/helloword/index.html">
+<meta property="og:title" content="防抖与节流">
+<meta property="og:url" content="http://yoursite.com/2017/04/26/debounce/index.html">
 <meta property="og:site_name" content="winter想穿AJ">
-<meta property="og:description" content="生命在于折腾，又把博客折腾到Hexo了。给Hexo点赞。">
+<meta property="og:description" content="窗口的resize、scroll、输入框内容校验等操作时，采用debounce（防抖）和throttle（节流）的方式来减少触发的频率。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-12T08:53:21.897Z">
+<meta property="og:updated_time" content="2018-08-26T08:04:24.239Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用Hexo搭建个人博客">
-<meta name="twitter:description" content="生命在于折腾，又把博客折腾到Hexo了。给Hexo点赞。">
+<meta name="twitter:title" content="防抖与节流">
+<meta name="twitter:description" content="窗口的resize、scroll、输入框内容校验等操作时，采用debounce（防抖）和throttle（节流）的方式来减少触发的频率。">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/05/03/helloword/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/26/debounce/"/>
 
 
 
 
 
-  <title>使用Hexo搭建个人博客 | winter想穿AJ</title>
+  <title>防抖与节流 | winter想穿AJ</title>
   
 
 
@@ -244,7 +244,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/05/03/helloword/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/26/debounce/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="winter想穿AJ">
@@ -261,7 +261,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">使用Hexo搭建个人博客</h1>
+          <h1 class="post-title" itemprop="name headline">防抖与节流</h1>
         
 
         <div class="post-meta">
@@ -273,8 +273,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-05-03T19:07:43+08:00">
-                2016-05-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-26T15:52:32+08:00">
+                2017-04-26
               </time>
             
 
@@ -283,28 +283,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Blog/" itemprop="url" rel="index">
-                    <span itemprop="name">Blog</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -320,7 +298,7 @@
 
           
               <div class="post-description">
-                  生命在于折腾，又把博客折腾到Hexo了。给Hexo点赞。
+                  窗口的resize、scroll、输入框内容校验等操作时，采用debounce（防抖）和throttle（节流）的方式来减少触发的频率。
               </div>
           
 
@@ -337,19 +315,8 @@
       
 
       
-        <h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">"My New Post"</span> || hexo new post <span class="string">"postName"</span></span><br><span class="line">hexo s --debug</span><br><span class="line">hexo clean</span><br><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
-<h2 id="重装之痛"><a href="#重装之痛" class="headerlink" title="重装之痛"></a>重装之痛</h2><h4 id="我是根据这个来建站的"><a href="#我是根据这个来建站的" class="headerlink" title="我是根据这个来建站的"></a>我是根据这个来建站的</h4><p><a href="https://www.cnblogs.com/fengxiongZz/p/7707219.html" target="_blank" rel="noopener">建站</a><br><a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">文档</a></p>
-<h2 id="FOR个人（仔细看建站链接）"><a href="#FOR个人（仔细看建站链接）" class="headerlink" title="FOR个人（仔细看建站链接）"></a>FOR个人（仔细看建站链接）</h2><pre><code>1.下载github的代码
-2.切换远程分支 (git checkout -b release origin/release)
-3.全局安装hexo (npm install hexo -g)（可能需要npm install hexo-deployer-git --save）
-4.在目录下安装 npm install
-5.记得把自己已改过的next主题下载下来，覆盖本地的
-6.有可能git有问题，貌似说没配置path变量，可以试试
-7.all is ok
-</code></pre><h2 id="setting-sync配置-根据"><a href="#setting-sync配置-根据" class="headerlink" title="setting sync配置 根据"></a>setting sync配置 <a href="https://juejin.im/post/5a08d1d6f265da430f31950e" target="_blank" rel="noopener">根据</a></h2><pre><code>1.F1,sync reset extent
-2.先ctrl+shift+D,按需要填token，giftID
-3.修改配置，不能直接同步这些配置（比如颜色主题之类的）
-</code></pre>
+        <h1 id="防抖动（debouce）"><a href="#防抖动（debouce）" class="headerlink" title="防抖动（debouce）"></a>防抖动（debouce）</h1><h2 id="若干个函数调用合成-一次，并在给定时间过去之后仅被调用一次"><a href="#若干个函数调用合成-一次，并在给定时间过去之后仅被调用一次" class="headerlink" title="若干个函数调用合成 一次，并在给定时间过去之后仅被调用一次"></a>若干个函数调用合成 一次，并在给定时间过去之后仅被调用一次</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">// immediate是否理解执行</span><br><span class="line">function debouce(func,delay,immediate)&#123;</span><br><span class="line">    var timer = null;</span><br><span class="line">    return function()&#123;</span><br><span class="line">        var context = this;</span><br><span class="line">        var args = arguments;</span><br><span class="line">        if(timer) clearTimeout(time);</span><br><span class="line">        if(immediate)&#123;</span><br><span class="line">            //根据距离上次触发操作的时间是否到达delay来决定是否要现在执行函数</span><br><span class="line">            var doNow = !timer;</span><br><span class="line">            //每一次都重新设置timer，就是要保证每一次执行的至少delay秒后才可以执行</span><br><span class="line">            timer = setTimeout(function()&#123;</span><br><span class="line">                timer = null;</span><br><span class="line">            &#125;,delay);</span><br><span class="line">            //立即执行</span><br><span class="line">            if(doNow)&#123;</span><br><span class="line">                func.apply(context,args);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            timer = setTimeout(function()&#123;</span><br><span class="line">                func.apply(context,args);</span><br><span class="line">            &#125;,delay);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function foo() &#123;</span><br><span class="line">  console.log(&apos;You are scrolling!&apos;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 在 debounce 中包装我们的函数，过 2 秒触发一次</span><br><span class="line">window.addEventListener(&apos;scroll&apos;, debounce(foo, 2000, true));</span><br></pre></td></tr></table></figure>
+<h1 id="节流（throttle）"><a href="#节流（throttle）" class="headerlink" title="节流（throttle）"></a>节流（throttle）</h1><h2 id="节流函数允许一个函数在规定的时间内只执行一次"><a href="#节流函数允许一个函数在规定的时间内只执行一次" class="headerlink" title="节流函数允许一个函数在规定的时间内只执行一次"></a>节流函数允许一个函数在规定的时间内只执行一次</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @desc 函数节流</span><br><span class="line"> * @param func 函数</span><br><span class="line"> * @param wait 延迟执行毫秒数</span><br><span class="line"> * @param type 1 表时间戳版，2 表定时器版</span><br><span class="line"> */</span><br><span class="line">function throttle(func, wait ,type) &#123;</span><br><span class="line">    if(type===1)&#123;</span><br><span class="line">        var previous = 0;</span><br><span class="line">    &#125;else if(type===2)&#123;</span><br><span class="line">        var timeout;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return function() &#123;</span><br><span class="line">        var context = this;</span><br><span class="line">        var args = arguments;</span><br><span class="line">        if(type===1)&#123;</span><br><span class="line">            var now = Date.now();</span><br><span class="line"></span><br><span class="line">            if (now - previous &gt; wait) &#123;</span><br><span class="line">                func.apply(context, args);</span><br><span class="line">                previous = now;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;else if(type===2)&#123;</span><br><span class="line">            if (!timeout) &#123;</span><br><span class="line">                timeout = setTimeout(function() &#123;</span><br><span class="line">                    timeout = null;</span><br><span class="line">                    func.apply(context, args)</span><br><span class="line">                &#125;, wait)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -366,7 +333,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+            <a href="/tags/js/" rel="tag"># js</a>
           
         </div>
       
@@ -379,14 +346,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/05/29/marginover/" rel="next" title="marginover问题">
+                <i class="fa fa-chevron-left"></i> marginover问题
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/05/18/svn/" rel="prev" title="svn">
-                svn <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/02/lazyload/" rel="prev" title="懒加载">
+                懒加载 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -523,7 +494,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用命令"><span class="nav-number">1.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重装之痛"><span class="nav-number">2.</span> <span class="nav-text">重装之痛</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#我是根据这个来建站的"><span class="nav-number">2.0.1.</span> <span class="nav-text">我是根据这个来建站的</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FOR个人（仔细看建站链接）"><span class="nav-number">3.</span> <span class="nav-text">FOR个人（仔细看建站链接）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#setting-sync配置-根据"><span class="nav-number">4.</span> <span class="nav-text">setting sync配置 根据</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#防抖动（debouce）"><span class="nav-number">1.</span> <span class="nav-text">防抖动（debouce）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#若干个函数调用合成-一次，并在给定时间过去之后仅被调用一次"><span class="nav-number">1.1.</span> <span class="nav-text">若干个函数调用合成 一次，并在给定时间过去之后仅被调用一次</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#节流（throttle）"><span class="nav-number">2.</span> <span class="nav-text">节流（throttle）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#节流函数允许一个函数在规定的时间内只执行一次"><span class="nav-number">2.1.</span> <span class="nav-text">节流函数允许一个函数在规定的时间内只执行一次</span></a></li></ol></li></ol></div>
             
 
           </div>
