@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="css," />
+  <meta name="keywords" content="js," />
 
 
 
@@ -79,21 +79,18 @@
 
 
 
-<meta name="description" content="css记录">
-<meta name="keywords" content="css">
+<meta name="description" content="玩掘金、知乎的时候复制一段文字，总是会在内容后面加上一些版权信息,这到底是怎么实现的呢">
+<meta name="keywords" content="js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="常用css">
-<meta property="og:url" content="http://yoursite.com/2018/05/17/aboutcss/index.html">
+<meta property="og:title" content="掘金复制方案">
+<meta property="og:url" content="http://yoursite.com/2016/08/28/juejinCopy/index.html">
 <meta property="og:site_name" content="我想穿AJ">
-<meta property="og:description" content="css记录">
+<meta property="og:description" content="玩掘金、知乎的时候复制一段文字，总是会在内容后面加上一些版权信息,这到底是怎么实现的呢">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/images/伪类.png">
-<meta property="og:image" content="http://yoursite.com/images/伪元素.png">
-<meta property="og:updated_time" content="2018-06-12T03:06:41.178Z">
+<meta property="og:updated_time" content="2018-08-28T07:21:17.706Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="常用css">
-<meta name="twitter:description" content="css记录">
-<meta name="twitter:image" content="http://yoursite.com/images/伪类.png">
+<meta name="twitter:title" content="掘金复制方案">
+<meta name="twitter:description" content="玩掘金、知乎的时候复制一段文字，总是会在内容后面加上一些版权信息,这到底是怎么实现的呢">
 
 
 
@@ -123,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/17/aboutcss/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/08/28/juejinCopy/"/>
 
 
 
 
 
-  <title>常用css | 我想穿AJ</title>
+  <title>掘金复制方案 | 我想穿AJ</title>
   
 
 
@@ -247,7 +244,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/17/aboutcss/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/28/juejinCopy/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="我想穿AJ">
@@ -264,7 +261,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">常用css</h1>
+          <h1 class="post-title" itemprop="name headline">掘金复制方案</h1>
         
 
         <div class="post-meta">
@@ -276,8 +273,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-17T14:07:25+08:00">
-                2018-05-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-28T15:11:02+08:00">
+                2016-08-28
               </time>
             
 
@@ -301,7 +298,7 @@
 
           
               <div class="post-description">
-                  css记录
+                  玩掘金、知乎的时候复制一段文字，总是会在内容后面加上一些版权信息,这到底是怎么实现的呢
               </div>
           
 
@@ -318,15 +315,14 @@
       
 
       
-        <h2 id="CSS中一个冒号和两个冒号有什么区别-链接-链接-important"><a href="#CSS中一个冒号和两个冒号有什么区别-链接-链接-important" class="headerlink" title="CSS中一个冒号和两个冒号有什么区别  链接 链接 important"></a>CSS中一个冒号和两个冒号有什么区别  <a href="https://shimo.im/doc/y18XXPd7hicGHr2H/" target="_blank" rel="noopener">链接</a> <a href="http://www.alloyteam.com/2016/05/summary-of-pseudo-classes-and-pseudo-elements/" target="_blank" rel="noopener">链接</a> <a href="https://blog.csdn.net/qq_25292481/article/details/52577320" target="_blank" rel="noopener">important</a></h2><p>我们来说说什么是伪类。<br>根据w3c，CSS 伪类用于向某些选择器添加特殊的效果。最常见的就是对a元素的一些伪类了，比如a:linked,a:visted,a:hover,a:active等等。<br>再说说伪元素。根据w3c，CSS 伪元素用于将特殊的效果添加到某些选择器。比如p:before，p:after，p:first-letter，p:first-line等等。当然有时候我们可能会看到这样的写法也能正确执行：p::before，p::after，p::first-letter，p::first-line,为什么？因为在css3以前对伪类及伪元素的写法都只是单冒号，而css3为了更好的区分开伪类及伪元素就规定对伪元素使用双冒号的写法，显然这个出发点是好的，但是为了兼容不支持css3这种特性的浏览器，我们还是先老实的用单冒号的写法吧。</p>
-<p><img src="/images/伪类.png" alt="rect"><br><img src="/images/伪元素.png" alt="rect"></p>
-<h3 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//常见伪类</span><br><span class="line">:first-child,:link,:vistited,:hover,:active:focus,:lang,:not(s),：root等...</span><br></pre></td></tr></table></figure>
-<iframe width="100%" height="300" src="//jsrun.net/kDZKp/embedded/all/light/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
-
-<h4 id="first-child-last-child-demo-li-not-last-child-first-of-type-p-last-of-type"><a href="#first-child-last-child-demo-li-not-last-child-first-of-type-p-last-of-type" class="headerlink" title=":first-child :last-child .demo li:not(:last-child) :first-of-type p:last-of-type"></a>:first-child :last-child .demo li:not(:last-child) :first-of-type p:last-of-type</h4><p>p:first-child 指的是P元素，并且P元素是其父元素的第一个子元素，last-child也是<br>p:first-of-type 选择每个p元素是其父级的第一个p元素</p>
-<p>p:nth-child(2) 选择每个p元素是其父级的第二个子元素,odd:单数，even:双数  (nth-last-child(2)  从最后一个子项计数)<br>p:nth-of-type(2) 选择每个p元素是其父级的第二个p元素 (p:nth-last-of-type(2) 从最后一个子项计数)</p>
-<h3 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//常见伪元素</span><br><span class="line">:first-line，:first-letter，:before，:after，:placeholder,:selection</span><br></pre></td></tr></table></figure>
-<h4 id="first-letter-first-line-selection"><a href="#first-letter-first-line-selection" class="headerlink" title="::first-letter ::first-line ::selection"></a>::first-letter ::first-line ::selection</h4><iframe width="100%" height="300" src="//jsrun.net/ZDZKp/embedded/all/light/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+        <h1 id="玩掘金、知乎的时候复制一段文字，总是会在内容后面加上一些版权信息-这到底是怎么实现的呢（直接撸码）"><a href="#玩掘金、知乎的时候复制一段文字，总是会在内容后面加上一些版权信息-这到底是怎么实现的呢（直接撸码）" class="headerlink" title="玩掘金、知乎的时候复制一段文字，总是会在内容后面加上一些版权信息,这到底是怎么实现的呢（直接撸码）"></a>玩掘金、知乎的时候复制一段文字，总是会在内容后面加上一些版权信息,这到底是怎么实现的呢（直接撸码）</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// 掘金这里不是全局监听，应该只是监听文章的dom范围内。</span><br><span class="line"></span><br><span class="line">document.body.oncopy = event =&gt; &#123;</span><br><span class="line">    event.preventDefault(); // 取消默认的复制事件</span><br><span class="line">    let textFont, copyFont = window.getSelection(0).toString(); // 被复制的文字 等下插入</span><br><span class="line">    // 防知乎掘金 复制一两个字则不添加版权信息 超过一定长度的文字 就添加版权信息</span><br><span class="line">    if (copyFont.length &gt; 10) &#123;</span><br><span class="line">        textFont = copyFont + &apos;\n&apos; +</span><br><span class="line">            &apos;作者：OBKoro1\n&apos; +</span><br><span class="line">            &apos;链接：https://juejin.im/user/58714f0eb123db4a2eb95372/posts\n&apos; +</span><br><span class="line">            &apos;来源：掘金\n&apos; +</span><br><span class="line">            &apos;著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。&apos;;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        textFont = copyFont; // 没超过十个字 则采用被复制的内容。</span><br><span class="line">    &#125;</span><br><span class="line">    if (event.clipboardData) &#123;</span><br><span class="line">        return event.clipboardData.setData(&apos;text&apos;, textFont); // 将信息写入粘贴板</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        // 兼容IE</span><br><span class="line">        return window.clipboardData.setData(&quot;text&quot;, textFont);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="实现类起点网的防复制功能"><a href="#实现类起点网的防复制功能" class="headerlink" title="实现类起点网的防复制功能:"></a>实现类起点网的防复制功能:</h1><ol>
+<li>禁止复制+剪切</li>
+<li>禁止右键，右键某些选项:全选，复制，粘贴等。</li>
+<li>禁用文字选择，能选择却不能复制，体验很差。</li>
+<li>user-select 用css禁止选择文本。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">// 禁止右键菜单</span><br><span class="line">//使用e.preventDefault()也可以禁用，但建议使用return false这样就不用去访问e和e的方法了。</span><br><span class="line">document.body.oncontextmenu = e =&gt; &#123;</span><br><span class="line">    console.log(e, &apos;右键&apos;);</span><br><span class="line">    return false;</span><br><span class="line">    // e.preventDefault();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 禁止文字选择。</span><br><span class="line"></span><br><span class="line">document.body.onselectstart = e =&gt; &#123;</span><br><span class="line">    console.log(e, &apos;文字选择&apos;);</span><br><span class="line">    return false;</span><br><span class="line">    // e.preventDefault();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 禁止复制</span><br><span class="line"></span><br><span class="line">document.body.oncopy = e =&gt; &#123;</span><br><span class="line">    console.log(e, &apos;copy&apos;);</span><br><span class="line">    return false;</span><br><span class="line">    // e.preventDefault();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 禁止剪切</span><br><span class="line">document.body.oncut = e =&gt; &#123;</span><br><span class="line">    console.log(e, &apos;cut&apos;);</span><br><span class="line">    return false;</span><br><span class="line">    // e.preventDefault();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 禁止粘贴</span><br><span class="line">document.body.onpaste = e =&gt; &#123;</span><br><span class="line">    console.log(e, &apos;paste&apos;);</span><br><span class="line">    return false;</span><br><span class="line">    // e.preventDefault();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// css 禁止文本选择 这样不会触发js</span><br><span class="line">body &#123;</span><br><span class="line">    user - select: none; -</span><br><span class="line">    moz - user - select: none; -</span><br><span class="line">    webkit - user - select: none; -</span><br><span class="line">    ms - user - select: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//复制</span><br><span class="line">function copyText() &#123;</span><br><span class="line"> var text = document.getElementById(&quot;text&quot;).innerText; // 获取要复制的内容也可以传进来</span><br><span class="line"> var input = document.getElementById(&quot;input&quot;); // 获取隐藏input的dom</span><br><span class="line"> input.value = text; // 修改文本框的内容</span><br><span class="line"> input.select(); // 选中文本</span><br><span class="line"> document.execCommand(&quot;copy&quot;); // 执行浏览器复制命令</span><br><span class="line"> alert(&quot;复制成功&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -345,7 +341,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/css/" rel="tag"># css</a>
+            <a href="/tags/js/" rel="tag"># js</a>
           
         </div>
       
@@ -358,8 +354,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/02/dywebsite/" rel="next" title="多益期间网站记录">
-                <i class="fa fa-chevron-left"></i> 多益期间网站记录
+              <a href="/2016/08/28/curry/" rel="next" title="柯里化">
+                <i class="fa fa-chevron-left"></i> 柯里化
               </a>
             
           </div>
@@ -368,8 +364,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/19/jsCssDomBlock/" rel="prev" title="浏览器渲染-css阻塞">
-                浏览器渲染-css阻塞 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/04/26/debounce/" rel="prev" title="防抖与节流">
+                防抖与节流 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -506,7 +502,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS中一个冒号和两个冒号有什么区别-链接-链接-important"><span class="nav-number">1.</span> <span class="nav-text">CSS中一个冒号和两个冒号有什么区别  链接 链接 important</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#伪类"><span class="nav-number">1.1.</span> <span class="nav-text">伪类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#first-child-last-child-demo-li-not-last-child-first-of-type-p-last-of-type"><span class="nav-number">1.1.1.</span> <span class="nav-text">:first-child :last-child .demo li:not(:last-child) :first-of-type p:last-of-type</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#伪元素"><span class="nav-number">1.2.</span> <span class="nav-text">伪元素</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#first-letter-first-line-selection"><span class="nav-number">1.2.1.</span> <span class="nav-text">::first-letter ::first-line ::selection</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#玩掘金、知乎的时候复制一段文字，总是会在内容后面加上一些版权信息-这到底是怎么实现的呢（直接撸码）"><span class="nav-number">1.</span> <span class="nav-text">玩掘金、知乎的时候复制一段文字，总是会在内容后面加上一些版权信息,这到底是怎么实现的呢（直接撸码）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现类起点网的防复制功能"><span class="nav-number">2.</span> <span class="nav-text">实现类起点网的防复制功能:</span></a></li></ol></div>
             
 
           </div>
