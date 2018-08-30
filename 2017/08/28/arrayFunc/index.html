@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="js 数组详细操作方法及解析合集">
+<meta name="description" content="js 数组详细操作方法及解析合集&amp;字符串">
 <meta name="keywords" content="js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数组操作">
+<meta property="og:title" content="数组操作&amp;字符串">
 <meta property="og:url" content="http://yoursite.com/2017/08/28/arrayFunc/index.html">
 <meta property="og:site_name" content="我想穿AJ">
-<meta property="og:description" content="js 数组详细操作方法及解析合集">
+<meta property="og:description" content="js 数组详细操作方法及解析合集&amp;字符串">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-28T07:22:00.827Z">
+<meta property="og:updated_time" content="2018-08-28T10:32:43.398Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数组操作">
-<meta name="twitter:description" content="js 数组详细操作方法及解析合集">
+<meta name="twitter:title" content="数组操作&amp;字符串">
+<meta name="twitter:description" content="js 数组详细操作方法及解析合集&amp;字符串">
 
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>数组操作 | 我想穿AJ</title>
+  <title>数组操作&字符串 | 我想穿AJ</title>
   
 
 
@@ -261,7 +261,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">数组操作</h1>
+          <h1 class="post-title" itemprop="name headline">数组操作&字符串</h1>
         
 
         <div class="post-meta">
@@ -298,7 +298,7 @@
 
           
               <div class="post-description">
-                  js 数组详细操作方法及解析合集
+                  js 数组详细操作方法及解析合集&字符串
               </div>
           
 
@@ -317,6 +317,18 @@
       
         <h1 id="js-数组详细操作方法及解析合集"><a href="#js-数组详细操作方法及解析合集" class="headerlink" title="js 数组详细操作方法及解析合集"></a>js 数组详细操作方法及解析合集</h1><h2 id="Array-of"><a href="#Array-of" class="headerlink" title="Array.of"></a>Array.of</h2><h3 id="返回由所有参数值组成的数组，如果没有参数，就返回一个空数组"><a href="#返回由所有参数值组成的数组，如果没有参数，就返回一个空数组" class="headerlink" title="返回由所有参数值组成的数组，如果没有参数，就返回一个空数组"></a>返回由所有参数值组成的数组，如果没有参数，就返回一个空数组</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let a = Array.of(3, 11, 8); // [3,11,8]</span><br><span class="line">let a = Array.of(3); // [3]</span><br></pre></td></tr></table></figure>
 <h2 id="Arrary-from"><a href="#Arrary-from" class="headerlink" title="Arrary.from()"></a>Arrary.from()</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> // 1. 对象拥有length属性</span><br><span class="line">let obj = &#123;0: &apos;a&apos;, 1: &apos;b&apos;, 2:&apos;c&apos;, length: 3&#125;;</span><br><span class="line">let arr = Array.from(obj); // [&apos;a&apos;,&apos;b&apos;,&apos;c&apos;];</span><br><span class="line">// 2. 部署了 Iterator接口的数据结构 比如:字符串、Set、NodeList对象</span><br><span class="line">let arr = Array.from(&apos;hello&apos;); // [&apos;h&apos;,&apos;e&apos;,&apos;l&apos;,&apos;l&apos;,&apos;o&apos;]</span><br><span class="line">let arr = Array.from(new Set([&apos;a&apos;,&apos;b&apos;])); // [&apos;a&apos;,&apos;b&apos;]</span><br></pre></td></tr></table></figure>
+<h1 id="比较array，string截取方法"><a href="#比较array，string截取方法" class="headerlink" title="比较array，string截取方法"></a>比较array，string截取方法</h1><ol>
+<li>string(substr, slice)都<strong>不会改变原来的字符串</strong>,返回的都是被截取的字符串,都可以负数。<strong>substr(index,length)</strong>;<strong>slice(start,end)</strong></li>
+<li>array(splice, slice)splice会改变原来数组，slice不会，返回的都是被截取的字符串,都可以负数。<strong>splice添加是在开始的元素前面添加的</strong>,eg如下，<strong>splice(index, length, item1,…,itemx)</strong>; <strong>slice(start, end)</strong></li>
+<li>共同点默认都是截取到最后面，都可以由负数开始,，都不可以从后面截取到前面，如果超过，就截取到最后一个。<strong>substr~=splice</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let b = [1, 2, 3, 4, 5, 6, 7];</span><br><span class="line">let item = b.splice(-1,0,&apos;添加1&apos;,&apos;添加2&apos;); </span><br><span class="line">// [] 没有删除元素，返回空数组</span><br><span class="line">console.log(b); </span><br><span class="line">// [1,2,3,4,5,6,&apos;添加1&apos;,&apos;添加2&apos;,7] 在最后一个元素的前面添加两个元素</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="array-string共有方法（indexOf-slice）"><a href="#array-string共有方法（indexOf-slice）" class="headerlink" title="array ,string共有方法（indexOf, slice）"></a>array ,string共有方法（indexOf, slice）</h1><h1 id="Array三类操作方法"><a href="#Array三类操作方法" class="headerlink" title="Array三类操作方法"></a>Array三类操作方法</h1><h3 id="改变原数组的值"><a href="#改变原数组的值" class="headerlink" title="改变原数组的值"></a>改变原数组的值</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">let a = [1,2,3];</span><br><span class="line">a.splice()</span><br><span class="line">a.copyWithin() //用不多</span><br><span class="line">a.sort() //return&lt;0,不变，等于0，不变，大于0，变</span><br><span class="line">a.push() //加在最后</span><br><span class="line">a.unshift() //加在第一个</span><br><span class="line">a.pop() //减去最后</span><br><span class="line">a.shift() //减去第一个</span><br><span class="line">a.reverse()//掉转</span><br><span class="line"></span><br><span class="line">a.fill()</span><br><span class="line"></span><br><span class="line">第一个元素(必须): 要填充数组的值</span><br><span class="line">第二个元素(可选): 填充的开始位置,默认值为0</span><br><span class="line">第三个元素(可选)：填充的结束位置，默认是为this.length</span><br><span class="line">[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;].fill(7) // [7, 7, 7]</span><br><span class="line">[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;].fill(7, 1, 2) // [&apos;a&apos;, 7, &apos;c&apos;]</span><br></pre></td></tr></table></figure>
+<h3 id="不会改变原数组（）"><a href="#不会改变原数组（）" class="headerlink" title="不会改变原数组（）"></a>不会改变原数组（）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a.slice();</span><br><span class="line">a.join()</span><br><span class="line">a.cancat()</span><br><span class="line">a.toLocateString()</span><br><span class="line">a.toStrigin()</span><br><span class="line">a.indexOf()</span><br><span class="line">a.lastIndexOf()</span><br><span class="line">a.includes()</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>数组的遍历方法（）</li>
+</ol>
+<p><strong>参考文档</strong><br><a href="https://juejin.im/post/5b0903b26fb9a07a9d70c7e0" target="_blank" rel="noopener">掘金链接https://juejin.im/post/5b0903b26fb9a07a9d70c7e0</a></p>
 
       
     </div>
@@ -441,7 +453,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -463,7 +475,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -496,7 +508,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#js-数组详细操作方法及解析合集"><span class="nav-number">1.</span> <span class="nav-text">js 数组详细操作方法及解析合集</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Array-of"><span class="nav-number">1.1.</span> <span class="nav-text">Array.of</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#返回由所有参数值组成的数组，如果没有参数，就返回一个空数组"><span class="nav-number">1.1.1.</span> <span class="nav-text">返回由所有参数值组成的数组，如果没有参数，就返回一个空数组</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Arrary-from"><span class="nav-number">1.2.</span> <span class="nav-text">Arrary.from()</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#js-数组详细操作方法及解析合集"><span class="nav-number">1.</span> <span class="nav-text">js 数组详细操作方法及解析合集</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Array-of"><span class="nav-number">1.1.</span> <span class="nav-text">Array.of</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#返回由所有参数值组成的数组，如果没有参数，就返回一个空数组"><span class="nav-number">1.1.1.</span> <span class="nav-text">返回由所有参数值组成的数组，如果没有参数，就返回一个空数组</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Arrary-from"><span class="nav-number">1.2.</span> <span class="nav-text">Arrary.from()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#比较array，string截取方法"><span class="nav-number">2.</span> <span class="nav-text">比较array，string截取方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#array-string共有方法（indexOf-slice）"><span class="nav-number">3.</span> <span class="nav-text">array ,string共有方法（indexOf, slice）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Array三类操作方法"><span class="nav-number">4.</span> <span class="nav-text">Array三类操作方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#改变原数组的值"><span class="nav-number">4.0.1.</span> <span class="nav-text">改变原数组的值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不会改变原数组（）"><span class="nav-number">4.0.2.</span> <span class="nav-text">不会改变原数组（）</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
