@@ -2,6 +2,7 @@
 title: 网页滚动事件监听
 date: 2017-08-26 15:07:04
 tags: [js]
+description: 测试一下各大主流浏览器下window和document以及document.body上的滚动事件
 ---
 
 # 测试一下各大主流浏览器下window和document以及document.body上的滚动事件
