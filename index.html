@@ -240,6 +240,158 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/31/httpcache/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="我想穿AJ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/blog-logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我想穿AJ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/31/httpcache/" itemprop="url">httpcache</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-31T11:07:19+08:00">
+                2018-08-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="缓存机制无处不在，有客户端缓存，服务端缓存，代理服务器缓存等。在HTTP中具有缓存功能的是浏览器缓存。"><a href="#缓存机制无处不在，有客户端缓存，服务端缓存，代理服务器缓存等。在HTTP中具有缓存功能的是浏览器缓存。" class="headerlink" title="缓存机制无处不在，有客户端缓存，服务端缓存，代理服务器缓存等。在HTTP中具有缓存功能的是浏览器缓存。"></a>缓存机制无处不在，有客户端缓存，服务端缓存，代理服务器缓存等。在HTTP中具有缓存功能的是浏览器缓存。</h2><h2 id="我们将缓存分为强缓存和弱缓存"><a href="#我们将缓存分为强缓存和弱缓存" class="headerlink" title="我们将缓存分为强缓存和弱缓存"></a>我们将缓存分为强缓存和弱缓存</h2><p><img src="/images/cache/1.jpg" alt="clean"></p>
+<p>浏览器请求一个静态资源时的HTTP流程</p>
+<p><img src="/images/cache/2.jpg" alt="clean"></p>
+<h3 id="强缓存与弱缓存的区别："><a href="#强缓存与弱缓存的区别：" class="headerlink" title="强缓存与弱缓存的区别："></a>强缓存与弱缓存的区别：</h3><p>获取资源形式： 都是从缓存中获取资源的。<br>状态码： 强缓存返回200(from cache),弱缓存返回304状态码<br>强缓存不发送请求，直接从缓存中取。<br>弱缓存需要发送一个请求，验证这个文件是否可以使用（有没有被改动过）。</p>
+<h3 id="强缓存"><a href="#强缓存" class="headerlink" title="强缓存"></a>强缓存</h3><ol>
+<li>Cache-Control（<strong>http1.1</strong>）</li>
+<li>Expires (<strong>http1.0</strong>)</li>
+</ol>
+<p>Exprires的值为服务端返回的数据到期时间。当再次请求时的请求时间小于返回的此时间，则直接使用缓存数据。但由于服务端时间和客户端时间可能有误差（浏览器端可以随意修改时间），这也将导致缓存命中的误差，另一方面，Expires是HTTP1.0的产物，故现在大多数使用Cache-Control替代。当Expires和Cache-Control同时存在时，浏览器先检查 Cache-Control，如果有，则以 Cache-Control 为准，忽略 Expires。如果没有 Cache-Control，则以 Expires 为准。</p>
+<h3 id="Cache-ControlCache-Control有很多属性，不同的属性代表的意义也不同。"><a href="#Cache-ControlCache-Control有很多属性，不同的属性代表的意义也不同。" class="headerlink" title="Cache-ControlCache-Control有很多属性，不同的属性代表的意义也不同。"></a>Cache-ControlCache-Control有很多属性，不同的属性代表的意义也不同。</h3><ol>
+<li>private：客户端可以缓存 （浏览器请求服务器时，中间服务器都要把浏览器的请求透传给服务器）</li>
+<li>public：客户端和代理服务器都可以缓存（浏览器请求服务器时，如果缓存时间没到，中间服务器直接返回给浏览器内容，而不必请求源服务器。）</li>
+<li>max-age=t：缓存内容将在t秒后失效</li>
+<li>no-cache：需要使用协商缓存来验证缓存数据（浏览器不做缓存检查）</li>
+<li>no-store：所有内容都不会缓存。</li>
+</ol>
+<h3 id="弱缓存"><a href="#弱缓存" class="headerlink" title="弱缓存"></a>弱缓存</h3><p>Last-Modified &amp; if-modified-since（<strong>http1.0</strong>,前者是response，后者request）<br>ETag &amp; If-None-Match（<strong>http1.1</strong>,前者是response，后者request）</p>
+<h3 id="Etag-主要为了解决-Last-Modified-无法解决的一些问题："><a href="#Etag-主要为了解决-Last-Modified-无法解决的一些问题：" class="headerlink" title="Etag 主要为了解决 Last-Modified 无法解决的一些问题："></a>Etag 主要为了解决 Last-Modified 无法解决的一些问题：</h3><ol>
+<li>一些文件也许内容并不改变(仅仅改变的修改时间)，这个时候我们不希望文件重新加载。（Etag值会触发缓存，Last-Modified不会触发）</li>
+<li>If-Modified-Since能检查到的粒度是秒级的，当修改非常频繁时，Last-Modified会触发缓存，而Etag的值不会触发，重新加载。</li>
+<li>某些服务器不能精确的得到文件的最后修改时间</li>
+</ol>
+<h4 id="但是实际应用中由于Etag的计算是使用算法来得出的，而算法会占用服务端计算的资源，所有服务端的资源都是宝贵的，所以就很少使用Etag了。"><a href="#但是实际应用中由于Etag的计算是使用算法来得出的，而算法会占用服务端计算的资源，所有服务端的资源都是宝贵的，所以就很少使用Etag了。" class="headerlink" title="但是实际应用中由于Etag的计算是使用算法来得出的，而算法会占用服务端计算的资源，所有服务端的资源都是宝贵的，所以就很少使用Etag了。"></a>但是实际应用中由于Etag的计算是使用算法来得出的，而算法会占用服务端计算的资源，所有服务端的资源都是宝贵的，所以就很少使用Etag了。</h4><h4 id="同时使用这两个报文头（Last-Modified-amp-amp-ETag），两个都匹配才会命中弱缓存，否则将重新请求资源。"><a href="#同时使用这两个报文头（Last-Modified-amp-amp-ETag），两个都匹配才会命中弱缓存，否则将重新请求资源。" class="headerlink" title="同时使用这两个报文头（Last-Modified &amp;&amp; ETag），两个都匹配才会命中弱缓存，否则将重新请求资源。"></a>同时使用这两个报文头（<strong>Last-Modified</strong> &amp;&amp; <strong>ETag</strong>），两个都匹配才会命中弱缓存，否则将重新请求资源。</h4><h3 id="不同刷新的请求执行过程"><a href="#不同刷新的请求执行过程" class="headerlink" title="不同刷新的请求执行过程"></a>不同刷新的请求执行过程</h3><ol>
+<li>浏览器地址栏中写入URL，回车浏览器发现缓存中有这个文件了，不用继续请求了，直接去缓存拿。（最快）</li>
+<li>F5就是告诉浏览器，别偷懒，好歹去服务器看看这个文件是否有过期了（强缓存）。于是浏览器就胆胆襟襟的发送一个请求带上If-Modify-since（弱缓存）。</li>
+<li>Ctrl+F5告诉浏览器，你先把你缓存中的这个文件给我删了，然后再去服务器请求个完整的资源文件下来。于是客户端就完成了强行更新的操作.</li>
+</ol>
+<h2 id="最终方案"><a href="#最终方案" class="headerlink" title="最终方案"></a>最终方案</h2><h4 id="痛点"><a href="#痛点" class="headerlink" title="痛点"></a>痛点</h4><p>浏览器无法主动得知服务器上的 a.js 资源变化了。<br>不管用 Expires 还是 Cache-Control，他们都只能够控制缓存是否过期，但是在缓存过期之前，浏览器是无法得知服务器上的资源是否变化的。只有当缓存过期后，浏览器才会发请求询问服务器。<br>大家可以想象我们使用 a.js 的场景，我们一般都是输入网址，访问一个 html 文件，html文件中会引入 js、css<br>、图片等资源。<br>所以呢，我们在html上做些手脚。<br>我们不让 html 文件缓存，每次访问 html 都去请求服务器。所以浏览器每次都能拿到最新的html资源。<br>a.js 内容更新的时候，我们修改一下 html 中 a.js 的版本号。<br>第一次访问 html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;http://test.com/a.js?version=0.0.1&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>浏览器下载0.0.1版本的a.js文件。<br>浏览器再次访问 html，发现还是0.0.1版本的a.js文件，则使用本地缓存。<br>某一天a.js变了，我们的html文件也相应变化如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;http://test.com/a.js?version=0.0.2&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>浏览器再次访问html，发现【test.com/a.js?versio… a.js。<br>如此往复。<br>所以，通过设置html不缓存，html引用资源内容变化则改变资源路径的方式，就解决了无法及时得知资源更新的问题。<br>当然除了以版本号来区分，也可以以 MD5hash 值来区分。 如</p>
+<p><script src="http://test.com/a.【hash值】.js"></script><br>复制代码<br>使用webpack打包的话，借助插件可以很方便的处理。</p>
+<h4 id="参考文旦"><a href="#参考文旦" class="headerlink" title="参考文旦"></a>参考文旦</h4><p><a href="https://juejin.im/post/5b3c87386fb9a04f9a5cb037" target="_blank" rel="noopener">面试精选之http缓存 - 掘金</a><br><a href="https://juejin.im/post/5a1d4e546fb9a0450f21af23" target="_blank" rel="noopener">HTTP—-HTTP缓存机制 - 掘金</a><br><a href="http://obkoro1.com/2018/06/09/%E6%B5%85%E6%9E%90HTTP%E7%BC%93%E5%AD%98%E7%9A%84%E6%9C%BA%E5%88%B6-%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/" target="_blank" rel="noopener">浅析HTTP缓存的机制-浏览器缓存 | OBKoro1’s Blog</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/19/jsCssDomBlock/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1352,131 +1504,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/28/juejinCopy/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="我想穿AJ">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/blog-logo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我想穿AJ">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/08/28/juejinCopy/" itemprop="url">掘金复制方案</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-28T15:11:02+08:00">
-                2016-08-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          玩掘金、知乎的时候复制一段文字，总是会在内容后面加上一些版权信息,这到底是怎么实现的呢
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/08/28/juejinCopy/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1531,7 +1558,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
