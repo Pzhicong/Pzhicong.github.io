@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="我想穿AJ">
 <meta property="og:description" content="popstate玩转浏览器历史记录HTML5的新API扩展了window.history，在过去，window.history对象，该对象上包含有length和state的两个值，在它的proto上继承有back、forward、go等几个功能函数，在popstate之前，我们可以利用back、forward、go对history进行后退和前进操作。你可以使用go()方法从当前会话的历史记录中加载">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-05T06:00:50.370Z">
+<meta property="og:updated_time" content="2018-09-05T06:29:36.379Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="popstate">
 <meta name="twitter:description" content="popstate玩转浏览器历史记录HTML5的新API扩展了window.history，在过去，window.history对象，该对象上包含有length和state的两个值，在它的proto上继承有back、forward、go等几个功能函数，在popstate之前，我们可以利用back、forward、go对history进行后退和前进操作。你可以使用go()方法从当前会话的历史记录中加载">
@@ -325,7 +325,7 @@
 <h3 id="解决问题（ios”往返缓存”）"><a href="#解决问题（ios”往返缓存”）" class="headerlink" title="解决问题（ios”往返缓存”）"></a>解决问题（ios”往返缓存”）</h3><p>在微信浏览器中，从一个html跳到另外一个html页面后，点击浏览器自带的历史返回按钮，或者在第二个页面中调用history.back()等返回上一页方法，在安卓中直接会返回上一页（相当于重新加载上一页所有内容和逻辑，js会重新在执行一遍），但是在苹果端中，返回到上一页是，浏览器会读取缓存中的页面内容（回到上一页，会保持跳转时的状态，包括刚才浏览的位置，但是js不会在重新执行，因为是直接读取缓存中的），这种缓存被称作“往返缓存”，是为了提高用户在触发“返回”或者“前进”时页面的响应速度。这个缓存不仅保存页面所有数据，还保存着页面DOM和JS的状态，如果页面处于“往返缓存”中，在次进入这个页面将不会触发 onload 事件。</p>
 <p>苹果系统的这种默认行为对于用户浏览列表，点击某个单个产品，查看详情，在返回上一页列表页的情况下，表现较好，因为会保持状态，默认回到上一个列表页的位置，但是在需要根据接口返回code或者value去判断某种状态的时候会产生很多问题，因为js不会重新执行，所有判断条件也就无法执行。所有当页面被保存在“往返缓存”中，时，我们可以想办法去不让浏览器从缓存中读取页面，而是重新加载页面内容</p>
 <p><strong>方法一</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">window.addEventListener(&quot;popstate&quot;, function (e) &#123;</span><br><span class="line">      //检测到用户点击浏览器返回按钮，进行操作</span><br><span class="line">       console.log(document.referrer);</span><br><span class="line"></span><br><span class="line">       //使用href的形式去用跳转的形式，跳转到上一页</span><br><span class="line">       document.location.href = document.referrer;</span><br><span class="line"> &#125;, false);</span><br><span class="line"> var state = &#123;</span><br><span class="line">    title: &quot;&quot;,</span><br><span class="line">    url: &quot;&quot;</span><br><span class="line"> &#125;;</span><br><span class="line"> window.history.pushState(state, &quot;&quot;, &quot;&quot;);</span><br></pre></td></tr></table></figure></p>
-<p><strong>方法二</strong></p>
+<p><strong>方法二(亲测有效)</strong></p>
 <h4 id="onpageshow事件（这个事件在页面显示时触发，如果页面不在“往返缓存”中，该事件将会在onload后触发）"><a href="#onpageshow事件（这个事件在页面显示时触发，如果页面不在“往返缓存”中，该事件将会在onload后触发）" class="headerlink" title="onpageshow事件（这个事件在页面显示时触发，如果页面不在“往返缓存”中，该事件将会在onload后触发）"></a>onpageshow事件（这个事件在页面显示时触发，如果页面不在“往返缓存”中，该事件将会在onload后触发）</h4><p>在onpageshow事件中，可以利用event.persisted<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">window.addEventListener(&apos;pageshow&apos;, function(event) &#123;</span><br><span class="line">    alert(event.persisted);</span><br><span class="line">    if (event.persisted) location.reload();    //如果检测到页面是从“往返缓存”中读取的，刷新页面</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 <p><strong>方法三</strong></p>
 <h4 id="指定了-onunload-事件处理程序的页面会被自动排除在-“往返缓存”之外，即使事件-处理程序是空的。原因在于，-onunload-最常用于撤销在-onload-中所执行的操作，-而跳过-onload-后再次显示页面很可能就会导致页面不正常"><a href="#指定了-onunload-事件处理程序的页面会被自动排除在-“往返缓存”之外，即使事件-处理程序是空的。原因在于，-onunload-最常用于撤销在-onload-中所执行的操作，-而跳过-onload-后再次显示页面很可能就会导致页面不正常" class="headerlink" title="指定了 onunload 事件处理程序的页面会被自动排除在 “往返缓存”之外，即使事件 处理程序是空的。原因在于， onunload 最常用于撤销在 onload 中所执行的操作， 而跳过 onload 后再次显示页面很可能就会导致页面不正常"></a>指定了 onunload 事件处理程序的页面会被自动排除在 “往返缓存”之外，即使事件 处理程序是空的。原因在于， onunload 最常用于撤销在 onload 中所执行的操作， 而跳过 onload 后再次显示页面很可能就会导致页面不正常</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">window.addEventListener(&apos;unload&apos;,function () &#123;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
@@ -454,7 +454,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -476,7 +476,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
