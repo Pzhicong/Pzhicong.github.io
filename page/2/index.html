@@ -682,6 +682,182 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/14/core/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="快乐肥宅">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/blog-logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="快乐肥宅">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/14/core/" itemprop="url">core</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-14T15:19:42+08:00">
+                2017-09-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="浏览器内核简介"><a href="#浏览器内核简介" class="headerlink" title="浏览器内核简介"></a>浏览器内核简介</h1><h2 id="webkit自从Apple开发源码之后，经过google大力发展，目前webkit已经相当盛行"><a href="#webkit自从Apple开发源码之后，经过google大力发展，目前webkit已经相当盛行" class="headerlink" title="webkit自从Apple开发源码之后，经过google大力发展，目前webkit已经相当盛行"></a>webkit自从<strong>Apple开发源码</strong>之后，经过<strong>google大力发展</strong>，目前webkit已经相当盛行</h2><p>国内常见的浏览器有：IE、Firefox、QQ浏览器、Safari、Opera、Google Chrome、百度浏览器、搜狗浏览器、猎豹浏览器、360浏览器、UC浏览器、遨游浏览器、世界之窗浏览器等。但目前最为主流浏览器有五大款，分别是IE、Firefox、Google Chrome、Safari、Opera。 </p>
+<p>国内常见的浏览器有：IE、Firefox、QQ浏览器、Safari、Opera、Google Chrome、百度浏览器、搜狗浏览器、猎豹浏览器、360浏览器、UC浏览器、遨游浏览器、世界之窗浏览器等。但目前最为主流浏览器有五大款，分别是IE、Firefox、Google Chrome、Safari、Opera。 </p>
+<p>微信浏览器（X5内核）被前端届称为移动端的“IE6”。最近发现自己的一个WebApp在微信下面出现一个坑爹的问题，所以想写一篇文章来总结一下自己在微信开发中所遇到的一些问题和解决办法，给自己和其它人提供参考。</p>
+<p>先说一下微信浏览器的情况，<strong>安卓端微信6.1版本以上使用的是QQ浏览器X5的内核，5.4~6.1之间如果用户手机上安装过QQ浏览器，则使用X5内核。如果未安装，则使用系统浏览器内核</strong></p>
+<p><strong>iOS端的情况比较简单，由于苹果的限制，微信只能使用Safari提供的内核(也就是Webkit)。相对来说iOS的问题不多，问题主要集中在安卓端，也就是X5内核上面。</strong></p>
+<p>五大浏览器：</p>
+<ol>
+<li>五大浏览器</li>
+<li>Opera浏览器</li>
+<li>Safari浏览器</li>
+<li>Firefox浏览器</li>
+<li>Chrome浏览器</li>
+</ol>
+<p>四大内核分别</p>
+<ol>
+<li>Trident（也称IE内核）</li>
+<li>webkit</li>
+<li>Blink</li>
+<li>Gecko</li>
+</ol>
+<p>作为前端开发，熟悉四大内核是非常有必要的。四大内核的解析不同使网页渲染效果更具多样化。下面总结一下各常用浏览器所使用的内核。</p>
+<ol>
+<li><strong>IE浏览器内核：Trident内核，也是俗称的IE内核；</strong></li>
+<li><strong>Chrome浏览器内核：统称为Chromium内核或Chrome内核，以前是Webkit内核，现在是Blink内核；</strong></li>
+<li><strong>Firefox浏览器内核：Gecko内核，俗称Firefox内核；</strong> </li>
+<li><strong>Safari浏览器内核：Webkit内核；</strong> </li>
+<li><strong>Opera浏览器内核：最初是自己的Presto内核，后来是Webkit，现在是Blink内核；</strong></li>
+<li>360浏览器、猎豹浏览器内核：IE+Chrome双内核； </li>
+<li>搜狗、遨游、QQ浏览器内核：Trident（兼容模式）+Webkit（高速模式）； </li>
+<li>百度浏览器、世界之窗内核：IE内核； </li>
+<li>2345浏览器内核：以前是IE内核，现在也是IE+Chrome双内核；</li>
+</ol>
+<h3 id="css前缀"><a href="#css前缀" class="headerlink" title="css前缀"></a>css前缀</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">-moz-     /* 火狐等使用(Gecko)Mozilla浏览器引擎的浏览器 */</span><br><span class="line">-webkit-  /* Safari, 谷歌浏览器等使用Webkit引擎的浏览器 */</span><br><span class="line">-o-       /* Opera浏览器(早期) */</span><br><span class="line">-ms-      /* Internet Explorer (不一定) */ </span><br><span class="line"></span><br><span class="line">-webkit-transform:rotate(-3deg); /为Chrome/Safari/ </span><br><span class="line">-moz-transform:rotate(-3deg); /为Firefox/ </span><br><span class="line">-ms-transform:rotate(-3deg); /为IE/ </span><br><span class="line">-o-transform:rotate(-3deg); /为Opera/ </span><br><span class="line">transform:rotate(-3deg); /为nothing/</span><br></pre></td></tr></table></figure>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><a href="https://blog.csdn.net/yuyanjing123456789/article/details/78689595" target="_blank" rel="noopener">五大主流浏览器及四大内核 - CSDN博客</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/28/arrayFunc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1565,153 +1741,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/28/curry/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="快乐肥宅">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/blog-logo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="快乐肥宅">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/08/28/curry/" itemprop="url">柯里化</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-28T09:20:08+08:00">
-                2016-08-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          函数柯里化指的是将能够接收多个参数的函数转化为接收单一参数的函数，并且返回接收余下参数且返回结果的新函数的技术。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/08/28/curry/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1766,7 +1795,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
