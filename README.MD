@@ -5,8 +5,9 @@
 3. hexo clean
 4. hexo d -g
 
+https://blog.csdn.net/weixin_36191602/article/details/80946242
 
-git config --local user.name "庞志聪winter"
+git config --local user.name "wocong"
 git config --local user.email "260056164@qq.com"
 
 git branch -d <BranchName>  ---删除本地分支
