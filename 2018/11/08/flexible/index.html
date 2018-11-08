@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="css," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言 css px是个相对长度单位，像素（px）是相对于显示器屏幕分辨率而言的国内推荐；em单位名称为相对长度单位。相对于当前对象内文本的字体尺寸，国外使用比较多；像素是一个个点，就是指屏幕能容下多少个点，不是长度单位。主要分为物理像素与逻辑像素，物理像素就是设备的设置的，总共能容下多个个点，逻辑像素=物理像素/devicePixelRatio，devicePixelRatio也是设备的固定的，（">
+<meta name="keywords" content="css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动端布局">
+<meta property="og:url" content="http://yoursite.com/2018/11/08/flexible/index.html">
+<meta property="og:site_name" content="我想穿AJ">
+<meta property="og:description" content="前言 css px是个相对长度单位，像素（px）是相对于显示器屏幕分辨率而言的国内推荐；em单位名称为相对长度单位。相对于当前对象内文本的字体尺寸，国外使用比较多；像素是一个个点，就是指屏幕能容下多少个点，不是长度单位。主要分为物理像素与逻辑像素，物理像素就是设备的设置的，总共能容下多个个点，逻辑像素=物理像素/devicePixelRatio，devicePixelRatio也是设备的固定的，（">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://pzhicong.github.io/cici/images/youdaoyun/ppi.png">
+<meta property="og:updated_time" content="2018-11-08T02:26:00.220Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="移动端布局">
+<meta name="twitter:description" content="前言 css px是个相对长度单位，像素（px）是相对于显示器屏幕分辨率而言的国内推荐；em单位名称为相对长度单位。相对于当前对象内文本的字体尺寸，国外使用比较多；像素是一个个点，就是指屏幕能容下多少个点，不是长度单位。主要分为物理像素与逻辑像素，物理像素就是设备的设置的，总共能容下多个个点，逻辑像素=物理像素/devicePixelRatio，devicePixelRatio也是设备的固定的，（">
+<meta name="twitter:image" content="https://pzhicong.github.io/cici/images/youdaoyun/ppi.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/08/flexible/"/>
+
+
+
+
+
+  <title>移动端布局 | 我想穿AJ</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/Pzhicong"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">我想穿AJ</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-something">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            有料
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/08/flexible/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="我想穿AJ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/blog-logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我想穿AJ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">移动端布局</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-08T09:47:30+08:00">
+                2018-11-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p><img src="https://pzhicong.github.io/cici/images/youdaoyun/ppi.png" alt="image"></p>
+<p>css px是个相对长度单位，像素（px）是相对于显示器屏幕分辨率而言的国内推荐；<br><strong>em</strong>单位名称为<strong>相对长度单位</strong>。相对于当前对象内文本的字体尺寸，国外使用比较多；<br>像素是一个个点，就是指屏幕能容下多少个点，不是长度单位。主要分为物理像素与逻辑像素，物理像素就是设备的设置的，总共能容下多个个点<br>，逻辑像素=物理像素/devicePixelRatio，devicePixelRatio也是设备的固定的，<br>（打开一个页面，移动端浏览器会自动寻找<meta name="viewport">,如果指定了视窗口的width，就会把页面放到指定width的viewport里面。如果没有指定，则默认值有的是980，具体根据浏览器来定的。（我遇到的就是这个问题，通过添加下面的代码解决））</p>
+<blockquote>
+<p>(这样整个网页在设备内显示时的页面宽度就会等于设备逻辑像素大小，也就是device-width。这个device-width的计算公式为：<br>设备的物理分辨率/(devicePixelRatio * scale)，在scale为1的情况下，device-width = 设备的物理分辨率/devicePixelRatio 。<br>devicePixelRatio称为设备像素比，每款设备的devicePixelRatio都是已知，并且不变的，目前高清屏，普遍都是2，不过还有更高的，比如2.5, 3 等，我魅族note的手机的devicePixelRatio就是3。淘宝触屏版布局的前提就是viewport的scale根据devicePixelRatio动态设置：)</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=”viewport” content=”width=device-width, </span><br><span class="line">    initial-scale=1, maximum-scale=1″&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>先明白几个概念<br>phys.width:<br>device-width:<br>一般我们所指的宽度width即为phys.width，而device-width又称为css-width。<br>其中我们可以获取phys.width即width通过document.documentElement.clientWidth;而获取css-width通过 window.screen.width获取。如iphone6的phys.width为750px（物理分辨率），而css-width为375px（逻辑分辨率）。<a href="https://www.cnblogs.com/wbxjiayou/p/5176815.html" target="_blank" rel="noopener">width=device-width作用</a> </p>
+</blockquote>
+<ul>
+<li>width：控制 viewport 的大小，可以指定的一个值，如果 600，或者特殊的值，如 device-width 为设备的宽度（单位为缩放为 100% 时的 CSS 的像素）。  </li>
+<li>height：和 width 相对应，指定高度。  </li>
+<li>initial-scale：初始缩放比例，也即是当页面第一次 load的时候缩放比例。  </li>
+<li>maximum-scale：允许用户缩放到的最大比例。  </li>
+<li>minimum-scale：允许用户缩放到的最小比例。  </li>
+<li>user-scalable：用户是否可以手动缩放  </li>
+</ul>
+<p><strong>共同点：量取的时候，所量尺寸，占设计稿多少rem，实际上css尺寸就占屏幕多少rem，设计稿的总宽度占多少rem，跟实际屏幕一样</strong><br><strong>网易：按设计稿每100px,作为一份（1rem长度），总共rem数不确定</strong><br><strong>淘宝：平均分为把宽度分为10rem</strong></p>
+<h3 id="网易做法"><a href="#网易做法" class="headerlink" title="网易做法"></a>网易做法</h3><p>(自己理解，设计稿750，设备375)</p>
+<ul>
+<li>设计稿（750）/100（把设计稿按每100px分为1份（1rem）总共7.5份）</li>
+<li>font-size= 设备（375px）/7.5=50(px),用说明当前设备每份（1rem）的长度是50px，</li>
+<li>用当前的设计稿量出来的长度/100，看他占了多少份（rem),也就是他的真实rem</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1,</span><br><span class="line">    maximum-scale=1, minimum-scale=1 &quot;&gt;</span><br><span class="line">自己悟的&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,</span><br><span class="line">     initial-scale=1,maximum-scale=1, minimum-scale=1 &quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>（1）先拿设计稿竖着的横向分辨率除以100得到body元素的宽度：<br>如果设计稿基于iphone6，横向分辨率为750，body的width为750 / 100 = 7.5rem<br>    如果设计稿基于iphone4/5，横向分辨率为640，body的width为640 / 100 = 6.4rem<br>（播放器高度为210px，写样式的时候css应该这么写：height: 2.1rem）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">document.documentElement.style.fontSize = document.documentElement.clientWidth / 6.4 + &apos;px&apos;;</span><br><span class="line">//pc屏了</span><br><span class="line">var deviceWidth = document.documentElement.clientWidth;</span><br><span class="line">    if(deviceWidth &gt; 640) deviceWidth = 640;</span><br><span class="line">    document.documentElement.style.fontSize = deviceWidth / 6.4 + &apos;px&apos;;</span><br></pre></td></tr></table></figure>
+<p>另外font-size可能需要额外的媒介查询，并且font-size不能使用rem，如网易的设置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@media screen and (max-width:321px)&#123;</span><br><span class="line">    	.m-navlist&#123;font-size:15px&#125;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">      @media screen and (min-width:321px) and (max-width:400px)&#123;</span><br><span class="line">    	.m-navlist&#123;font-size:16px&#125;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">	@media screen and (min-width:400px)&#123;</span><br><span class="line">    		.m-navlist&#123;font-size:18px&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="淘宝的做法："><a href="#淘宝的做法：" class="headerlink" title="淘宝的做法："></a>淘宝的做法：</h3><p>(自己理解)</p>
+<ul>
+<li>把设备的宽度设置成跟设计稿一样的宽度</li>
+<li>1rem的宽度=把设计稿宽度/10（分成10份，10rem）</li>
+<li>最后？rem= 量出来的宽度/1rem的宽度</li>
+</ul>
+<p><strong>（这个device-width的计算公式为：<br>设备的物理分辨率/(devicePixelRatio * scale)，在scale为1的情况下，device-width = 设备的物理分辨率/devicePixelRatio 。<br>devicePixelRatio称为设备像素比，每款设备的devicePixelRatio都是已知，并且不变的，目前高清屏，普遍都是2，不过还有更高的，比如2.5, 3 等，我魅族note的手机的devicePixelRatio就是3。）</strong></p>
+<p>通过js设置viewport的方法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var scale = 1 / devicePixelRatio;</span><br><span class="line">    document.querySelector(&apos;meta[name=&quot;viewport&quot;]&apos;).setAttribute(&apos;content&apos;,&apos;initial-scale=&apos; + scale + &apos;, maximum-scale=&apos; + scale + &apos;, 			             		minimum-scale=&apos; + scale + &apos;, user-scalable=no&apos;);</span><br><span class="line"></span><br><span class="line">动态计算html的font-size</span><br><span class="line">document.documentElement.style.fontSize = document.documentElement.clientWidth / 10 + &apos;px&apos;;</span><br></pre></td></tr></table></figure>
+<p>布局的时候，各元素的css尺寸=设计稿标注尺寸/（设计稿横向分辨率/10）</p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="http://www.cnblogs.com/lyzg/p/4877277.html#" target="_blank" rel="noopener">淘宝&amp;网易做法</a><br><a href="https://github.com/amfe/lib-flexible" target="_blank" rel="noopener">lib-flexible</a><br><a href="http://www.zhangxinxu.com/wordpress/2012/08/window-devicepixelratio/" target="_blank" rel="noopener">鑫哥博客</a><br><a href="http://www.cnblogs.com/lovesueee/p/4618454.htm" target="_blank" rel="noopener">其他博客new</a><br><a href="http://yunkus.com/physical-pixel-device-independent-pixels/" target="_blank" rel="noopener">其他博客</a><br><a href="https://www.jianshu.com/p/bb76c606f0b4" target="_blank" rel="noopener">其他博客</a><br><a href="http://www.cnblogs.com/zdhblog/p/6845618.html" target="_blank" rel="noopener">示意图</a><br><a href="https://www.jianshu.com/p/7e63f5a32636" target="_blank" rel="noopener">7种方法解决移动端Retina屏幕1px边框问题</a>  </p>
+
+      
+    </div>
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/css/" rel="tag"># css</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/23/tspratice/" rel="next" title="tspratice">
+                <i class="fa fa-chevron-left"></i> tspratice
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/blog-logo.jpg"
+                alt="我想穿AJ" />
+            
+              <p class="site-author-name" itemprop="name">我想穿AJ</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网易做法"><span class="nav-number">2.</span> <span class="nav-text">网易做法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#淘宝的做法："><span class="nav-number">3.</span> <span class="nav-text">淘宝的做法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">我想穿AJ</span>
+
+  
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>

@@ -250,6 +250,291 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/08/flexible/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="我想穿AJ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/blog-logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我想穿AJ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/08/flexible/" itemprop="url">移动端布局</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-08T09:47:30+08:00">
+                2018-11-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p><img src="https://pzhicong.github.io/cici/images/youdaoyun/ppi.png" alt="image"></p>
+<p>css px是个相对长度单位，像素（px）是相对于显示器屏幕分辨率而言的国内推荐；<br><strong>em</strong>单位名称为<strong>相对长度单位</strong>。相对于当前对象内文本的字体尺寸，国外使用比较多；<br>像素是一个个点，就是指屏幕能容下多少个点，不是长度单位。主要分为物理像素与逻辑像素，物理像素就是设备的设置的，总共能容下多个个点<br>，逻辑像素=物理像素/devicePixelRatio，devicePixelRatio也是设备的固定的，<br>（打开一个页面，移动端浏览器会自动寻找<meta name="viewport">,如果指定了视窗口的width，就会把页面放到指定width的viewport里面。如果没有指定，则默认值有的是980，具体根据浏览器来定的。（我遇到的就是这个问题，通过添加下面的代码解决））</p>
+<blockquote>
+<p>(这样整个网页在设备内显示时的页面宽度就会等于设备逻辑像素大小，也就是device-width。这个device-width的计算公式为：<br>设备的物理分辨率/(devicePixelRatio * scale)，在scale为1的情况下，device-width = 设备的物理分辨率/devicePixelRatio 。<br>devicePixelRatio称为设备像素比，每款设备的devicePixelRatio都是已知，并且不变的，目前高清屏，普遍都是2，不过还有更高的，比如2.5, 3 等，我魅族note的手机的devicePixelRatio就是3。淘宝触屏版布局的前提就是viewport的scale根据devicePixelRatio动态设置：)</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=”viewport” content=”width=device-width, </span><br><span class="line">    initial-scale=1, maximum-scale=1″&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>先明白几个概念<br>phys.width:<br>device-width:<br>一般我们所指的宽度width即为phys.width，而device-width又称为css-width。<br>其中我们可以获取phys.width即width通过document.documentElement.clientWidth;而获取css-width通过 window.screen.width获取。如iphone6的phys.width为750px（物理分辨率），而css-width为375px（逻辑分辨率）。<a href="https://www.cnblogs.com/wbxjiayou/p/5176815.html" target="_blank" rel="noopener">width=device-width作用</a> </p>
+</blockquote>
+<ul>
+<li>width：控制 viewport 的大小，可以指定的一个值，如果 600，或者特殊的值，如 device-width 为设备的宽度（单位为缩放为 100% 时的 CSS 的像素）。  </li>
+<li>height：和 width 相对应，指定高度。  </li>
+<li>initial-scale：初始缩放比例，也即是当页面第一次 load的时候缩放比例。  </li>
+<li>maximum-scale：允许用户缩放到的最大比例。  </li>
+<li>minimum-scale：允许用户缩放到的最小比例。  </li>
+<li>user-scalable：用户是否可以手动缩放  </li>
+</ul>
+<p><strong>共同点：量取的时候，所量尺寸，占设计稿多少rem，实际上css尺寸就占屏幕多少rem，设计稿的总宽度占多少rem，跟实际屏幕一样</strong><br><strong>网易：按设计稿每100px,作为一份（1rem长度），总共rem数不确定</strong><br><strong>淘宝：平均分为把宽度分为10rem</strong></p>
+<h3 id="网易做法"><a href="#网易做法" class="headerlink" title="网易做法"></a>网易做法</h3><p>(自己理解，设计稿750，设备375)</p>
+<ul>
+<li>设计稿（750）/100（把设计稿按每100px分为1份（1rem）总共7.5份）</li>
+<li>font-size= 设备（375px）/7.5=50(px),用说明当前设备每份（1rem）的长度是50px，</li>
+<li>用当前的设计稿量出来的长度/100，看他占了多少份（rem),也就是他的真实rem</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1,</span><br><span class="line">    maximum-scale=1, minimum-scale=1 &quot;&gt;</span><br><span class="line">自己悟的&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,</span><br><span class="line">     initial-scale=1,maximum-scale=1, minimum-scale=1 &quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>（1）先拿设计稿竖着的横向分辨率除以100得到body元素的宽度：<br>如果设计稿基于iphone6，横向分辨率为750，body的width为750 / 100 = 7.5rem<br>    如果设计稿基于iphone4/5，横向分辨率为640，body的width为640 / 100 = 6.4rem<br>（播放器高度为210px，写样式的时候css应该这么写：height: 2.1rem）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">document.documentElement.style.fontSize = document.documentElement.clientWidth / 6.4 + &apos;px&apos;;</span><br><span class="line">//pc屏了</span><br><span class="line">var deviceWidth = document.documentElement.clientWidth;</span><br><span class="line">    if(deviceWidth &gt; 640) deviceWidth = 640;</span><br><span class="line">    document.documentElement.style.fontSize = deviceWidth / 6.4 + &apos;px&apos;;</span><br></pre></td></tr></table></figure>
+<p>另外font-size可能需要额外的媒介查询，并且font-size不能使用rem，如网易的设置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@media screen and (max-width:321px)&#123;</span><br><span class="line">    	.m-navlist&#123;font-size:15px&#125;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">      @media screen and (min-width:321px) and (max-width:400px)&#123;</span><br><span class="line">    	.m-navlist&#123;font-size:16px&#125;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">	@media screen and (min-width:400px)&#123;</span><br><span class="line">    		.m-navlist&#123;font-size:18px&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="淘宝的做法："><a href="#淘宝的做法：" class="headerlink" title="淘宝的做法："></a>淘宝的做法：</h3><p>(自己理解)</p>
+<ul>
+<li>把设备的宽度设置成跟设计稿一样的宽度</li>
+<li>1rem的宽度=把设计稿宽度/10（分成10份，10rem）</li>
+<li>最后？rem= 量出来的宽度/1rem的宽度</li>
+</ul>
+<p><strong>（这个device-width的计算公式为：<br>设备的物理分辨率/(devicePixelRatio * scale)，在scale为1的情况下，device-width = 设备的物理分辨率/devicePixelRatio 。<br>devicePixelRatio称为设备像素比，每款设备的devicePixelRatio都是已知，并且不变的，目前高清屏，普遍都是2，不过还有更高的，比如2.5, 3 等，我魅族note的手机的devicePixelRatio就是3。）</strong></p>
+<p>通过js设置viewport的方法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var scale = 1 / devicePixelRatio;</span><br><span class="line">    document.querySelector(&apos;meta[name=&quot;viewport&quot;]&apos;).setAttribute(&apos;content&apos;,&apos;initial-scale=&apos; + scale + &apos;, maximum-scale=&apos; + scale + &apos;, 			             		minimum-scale=&apos; + scale + &apos;, user-scalable=no&apos;);</span><br><span class="line"></span><br><span class="line">动态计算html的font-size</span><br><span class="line">document.documentElement.style.fontSize = document.documentElement.clientWidth / 10 + &apos;px&apos;;</span><br></pre></td></tr></table></figure>
+<p>布局的时候，各元素的css尺寸=设计稿标注尺寸/（设计稿横向分辨率/10）</p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="http://www.cnblogs.com/lyzg/p/4877277.html#" target="_blank" rel="noopener">淘宝&amp;网易做法</a><br><a href="https://github.com/amfe/lib-flexible" target="_blank" rel="noopener">lib-flexible</a><br><a href="http://www.zhangxinxu.com/wordpress/2012/08/window-devicepixelratio/" target="_blank" rel="noopener">鑫哥博客</a><br><a href="http://www.cnblogs.com/lovesueee/p/4618454.htm" target="_blank" rel="noopener">其他博客new</a><br><a href="http://yunkus.com/physical-pixel-device-independent-pixels/" target="_blank" rel="noopener">其他博客</a><br><a href="https://www.jianshu.com/p/bb76c606f0b4" target="_blank" rel="noopener">其他博客</a><br><a href="http://www.cnblogs.com/zdhblog/p/6845618.html" target="_blank" rel="noopener">示意图</a><br><a href="https://www.jianshu.com/p/7e63f5a32636" target="_blank" rel="noopener">7种方法解决移动端Retina屏幕1px边框问题</a>  </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/23/tspratice/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="我想穿AJ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/blog-logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我想穿AJ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/23/tspratice/" itemprop="url">tspratice</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-23T10:28:13+08:00">
+                2018-10-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          ts学习
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/23/tspratice/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/06/perforoptim/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -269,7 +554,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/06/perforoptim/" itemprop="url">perforoptim</a></h1>
+                <a class="post-title-link" href="/2018/09/06/perforoptim/" itemprop="url">性能优化</a></h1>
         
 
         <div class="post-meta">
@@ -343,7 +628,27 @@
       
         
           
-            <h2 id="史上最强的性能优化方案"><a href="#史上最强的性能优化方案" class="headerlink" title="史上最强的性能优化方案"></a>史上最强的性能优化方案</h2>
+            <h2 id="史上最强的性能优化方案"><a href="#史上最强的性能优化方案" class="headerlink" title="史上最强的性能优化方案"></a>史上最强的性能优化方案</h2><h4 id="webp格式图片兼容写法"><a href="#webp格式图片兼容写法" class="headerlink" title="webp格式图片兼容写法"></a>webp格式图片兼容写法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//如果浏览器支持WebP格式，就会加载image.webp，否则会加载image.jpg</span><br><span class="line">&lt;picture class=&quot;picture&quot;&gt;</span><br><span class="line">  &lt;source type=&quot;image/webp&quot; srcset=&quot;image.webp&quot;&gt;</span><br><span class="line">  &lt;img class=&quot;image&quot; src=&quot;image.jpg&quot;&gt;</span><br><span class="line">&lt;/picture&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>DOM</strong></p>
+<ol>
+<li>在JS中对DOM进行访问的代价非常高。请尽可能减少访问DOM的次数（建议缓存DOM属性和元素、把DOM集合的长度缓存到变量中并在迭代中使用。读变量比读DOM的速度要快很多。）</li>
+<li>重排与重绘的代价非常昂贵。如果操作需要进行多次重排与重绘，建议先让元素脱离文档流，处理完毕后再让元素回归文档流，这样浏览器只会进行两次重排与重绘（脱离时和回归时）。</li>
+<li>善于使用事件委托</li>
+</ol>
+<p><strong>图片优化</strong></p>
+<ol>
+<li>尽可能通过srcset，sizes和<picture>元素使用响应式图片。还可以通过<picture>元素使用WebP格式的图像。</picture></picture></li>
+<li>使用自动播放与循环的HTML5视频替换GIF图，因为视频比GIF文件还小（好消息是未来可以通过img标签加载视频）</li>
+</ol>
+<p><strong>defer</strong><br>使用defer或async。如果使用defer或async请将Script标签放到head标签中，<strong>以便让浏览器更早地发现资源并在后台线程中解析并开始加载JS</strong>。</p>
+<p><strong>使用Intersection Observer实现懒加载</strong> <a href="https://caniuse.com/#search=Intersection" target="_blank" rel="noopener">兼容性</a></p>
+<ol>
+<li>可以通过Intersection Observer延迟加载图片、视频、广告脚本、或任何其他资源。</li>
+<li>可以先加载低质量或模糊的图片，当图片加载完毕后再使用完整版图片替换它。</li>
+<li>延迟加载所有体积较大的组件、字体、JS、视频或Iframe是一个好主意</li>
+</ol>
+<p><strong>优先加载关键的CSS</strong><br>CSS资源的加载对浏览器渲染的影响很大，默认情况下浏览器只有在完成<head>标签中CSS的加载与解析之后才会渲染页面。如果CSS文件过大，用户就需要等待很长的时间才能看到渲染结果。针对这种情况可以将首屏渲染必须用到的CSS提取出来内嵌到<head>中，然后再将剩余部分的CSS用异步的方式加载。可以通过Critical做到这一点。</head></head></p>
+
           
         
       
@@ -1279,261 +1584,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/28/arrayFunc/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="我想穿AJ">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/blog-logo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我想穿AJ">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/28/arrayFunc/" itemprop="url">数组操作&字符串</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-28T14:18:47+08:00">
-                2017-08-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          js 数组详细操作方法及解析合集&字符串
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/28/arrayFunc/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/26/domEvent/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="我想穿AJ">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/blog-logo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我想穿AJ">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/26/domEvent/" itemprop="url">网页滚动事件监听</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-26T15:07:04+08:00">
-                2017-08-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          测试一下各大主流浏览器下window和document以及document.body上的滚动事件
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/26/domEvent/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1583,7 +1638,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
