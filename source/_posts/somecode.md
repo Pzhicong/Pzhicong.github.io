@@ -1,7 +1,8 @@
 ---
 title: somecode
 date: 2018-09-05 13:51:25
-tags:
+categories: 前端
+tags: [js, css]
 ---
 
 ### 一些代码

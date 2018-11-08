@@ -1,6 +1,7 @@
 ---
 title: popstate
 date: 2017-06-05 10:41:29
+categories: 前端
 tags: [js]
 ---
 

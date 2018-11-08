@@ -1,6 +1,7 @@
 ---
 title: svn
 date: 2016-05-18 10:54:27
+categories: 前端
 tags: [tools]
 description: svn更新，清理时出现乱码解决方案。
 ---

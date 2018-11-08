@@ -1,6 +1,7 @@
 ---
 title: koa2跨域设置cookies
 date: 2018-04-29 13:34:32
+categories: 前端
 tags: [node]
 description: 当我们需要跨域设置cookies的时候。一般的，是设置不进去的，浏览器即使接受到setCookies请求，但实际上没有设置进去，所以在其他请求的时候，也不会带上。这时候，就需要我们设置一下请求参数了。
 ---

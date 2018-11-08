@@ -1,6 +1,7 @@
 ---
 title: 防抖与节流
 date: 2017-04-26 15:52:32
+categories: 前端
 tags: [js]
 description: 窗口的resize、scroll、输入框内容校验等操作时，采用debounce（防抖）和throttle（节流）的方式来减少触发的频率。
 ---

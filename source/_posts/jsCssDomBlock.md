@@ -1,6 +1,7 @@
 ---
 title: 浏览器渲染-css阻塞
 date: 2018-06-19 17:40:01
+categories: 前端
 tags: [browser]
 description: CSS、JS是这样阻塞DOM解析和渲染的
 ---

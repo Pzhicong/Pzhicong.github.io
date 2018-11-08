@@ -1,6 +1,7 @@
 ---
 title: redux
 date: 2018-01-27 18:48:38
+categories: 前端
 tags: [js]
 ---
 

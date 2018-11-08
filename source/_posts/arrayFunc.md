@@ -1,6 +1,7 @@
 ---
 title: 数组操作&字符串
 date: 2017-08-28 14:18:47
+categories: 前端
 tags: [js]
 description: js 数组详细操作方法及解析合集&字符串
 ---

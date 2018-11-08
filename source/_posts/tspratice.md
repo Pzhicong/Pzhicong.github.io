@@ -1,7 +1,8 @@
 ---
 title: tspratice
 date: 2018-10-23 10:28:13
-tags:
+categories: 前端
+tags: [ts]
 description: ts学习
 ---
 
