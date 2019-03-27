@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="小程序," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="微信小程序跳坑指南微信小程序越来越火了，最近因为做一个营销活动需要用到小程序形势，所以就安排了一波小程序。其中痛苦并快乐着，为了造福大家，避免大家重复走我走过的坑，现在决定把这套《降龙十八掌》免费传授给各位有缘人。𓀀𓀁𓀂𓀃𓀄𓀅𓀆𓀇𓀈𓀉𓀊𓀋𓀌𓀍𓀎𓀏𓀐𓀑𓀒𓀓𓀔𓀕𓀖𓀗𓀘𓀙𓀚𓀛𓀜debug模式在小程序开发过程中，很多请求域名需要配置，小程序默认是请">
+<meta name="keywords" content="小程序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小程序入坑指南">
+<meta property="og:url" content="http://yoursite.com/2017/09/27/wxapp/index.html">
+<meta property="og:site_name" content="志聪前端之屋">
+<meta property="og:description" content="微信小程序跳坑指南微信小程序越来越火了，最近因为做一个营销活动需要用到小程序形势，所以就安排了一波小程序。其中痛苦并快乐着，为了造福大家，避免大家重复走我走过的坑，现在决定把这套《降龙十八掌》免费传授给各位有缘人。𓀀𓀁𓀂𓀃𓀄𓀅𓀆𓀇𓀈𓀉𓀊𓀋𓀌𓀍𓀎𓀏𓀐𓀑𓀒𓀓𓀔𓀕𓀖𓀗𓀘𓀙𓀚𓀛𓀜debug模式在小程序开发过程中，很多请求域名需要配置，小程序默认是请">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/wxapp/1.png">
+<meta property="og:image" content="http://yoursite.com/images/wxapp/2.png">
+<meta property="og:image" content="http://yoursite.com/images/wxapp/3.png">
+<meta property="og:image" content="http://yoursite.com/images/wxapp/4.png">
+<meta property="og:image" content="http://yoursite.com/images/wxapp/5.png">
+<meta property="og:image" content="http://yoursite.com/images/wxapp/6.png">
+<meta property="og:image" content="http://yoursite.com/images/wxapp/7.png">
+<meta property="og:image" content="http://yoursite.com/images/wxapp/8.png">
+<meta property="og:image" content="http://yoursite.com/images/wxapp/9.png">
+<meta property="og:image" content="http://yoursite.com/images/wxapp/10.png">
+<meta property="og:image" content="http://yoursite.com/images/wxapp/11.png">
+<meta property="og:image" content="http://yoursite.com/images/wxapp/12.png">
+<meta property="og:image" content="http://yoursite.com/images/wxapp/13.png">
+<meta property="og:image" content="http://yoursite.com/images/wxapp/14.png">
+<meta property="og:image" content="http://yoursite.com/images/wxapp/15.png">
+<meta property="og:updated_time" content="2019-03-27T06:48:54.396Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="小程序入坑指南">
+<meta name="twitter:description" content="微信小程序跳坑指南微信小程序越来越火了，最近因为做一个营销活动需要用到小程序形势，所以就安排了一波小程序。其中痛苦并快乐着，为了造福大家，避免大家重复走我走过的坑，现在决定把这套《降龙十八掌》免费传授给各位有缘人。𓀀𓀁𓀂𓀃𓀄𓀅𓀆𓀇𓀈𓀉𓀊𓀋𓀌𓀍𓀎𓀏𓀐𓀑𓀒𓀓𓀔𓀕𓀖𓀗𓀘𓀙𓀚𓀛𓀜debug模式在小程序开发过程中，很多请求域名需要配置，小程序默认是请">
+<meta name="twitter:image" content="http://yoursite.com/images/wxapp/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/27/wxapp/"/>
+
+
+
+
+
+  <title>小程序入坑指南 | 志聪前端之屋</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/Pzhicong"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">志聪前端之屋</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-something">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            有料
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/27/wxapp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="志聪前端之屋">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/blog-logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="志聪前端之屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">小程序入坑指南</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-27T14:21:17+08:00">
+                2017-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="微信小程序跳坑指南"><a href="#微信小程序跳坑指南" class="headerlink" title="微信小程序跳坑指南"></a>微信小程序跳坑指南</h1><h4 id="微信小程序越来越火了，最近因为做一个营销活动需要用到小程序形势，所以就安排了一波小程序。其中痛苦并快乐着，为了造福大家，避免大家重复走我走过的坑，现在决定把这套《降龙十八掌》免费传授给各位有缘人。𓀀𓀁𓀂𓀃𓀄𓀅𓀆𓀇𓀈𓀉𓀊𓀋𓀌𓀍𓀎𓀏𓀐𓀑𓀒𓀓𓀔𓀕𓀖𓀗𓀘𓀙𓀚𓀛𓀜"><a href="#微信小程序越来越火了，最近因为做一个营销活动需要用到小程序形势，所以就安排了一波小程序。其中痛苦并快乐着，为了造福大家，避免大家重复走我走过的坑，现在决定把这套《降龙十八掌》免费传授给各位有缘人。𓀀𓀁𓀂𓀃𓀄𓀅𓀆𓀇𓀈𓀉𓀊𓀋𓀌𓀍𓀎𓀏𓀐𓀑𓀒𓀓𓀔𓀕𓀖𓀗𓀘𓀙𓀚𓀛𓀜" class="headerlink" title="微信小程序越来越火了，最近因为做一个营销活动需要用到小程序形势，所以就安排了一波小程序。其中痛苦并快乐着，为了造福大家，避免大家重复走我走过的坑，现在决定把这套《降龙十八掌》免费传授给各位有缘人。𓀀𓀁𓀂𓀃𓀄𓀅𓀆𓀇𓀈𓀉𓀊𓀋𓀌𓀍𓀎𓀏𓀐𓀑𓀒𓀓𓀔𓀕𓀖𓀗𓀘𓀙𓀚𓀛𓀜"></a>微信小程序越来越火了，最近因为做一个营销活动需要用到小程序形势，所以就安排了一波小程序。其中痛苦并快乐着，为了造福大家，避免大家重复走我走过的坑，现在决定把这套《降龙十八掌》免费传授给各位有缘人。𓀀𓀁𓀂𓀃𓀄𓀅𓀆𓀇𓀈𓀉𓀊𓀋𓀌𓀍𓀎𓀏𓀐𓀑𓀒𓀓𓀔𓀕𓀖𓀗𓀘𓀙𓀚𓀛𓀜</h4><h3 id="debug模式"><a href="#debug模式" class="headerlink" title="debug模式"></a>debug模式</h3><p>在小程序开发过程中，很多请求域名需要配置，小程序默认是请求不了外部的接口，图片资源等。这时候，我们可以选择在开发工具上右上角点击详情，然后再下面勾选不校验安全域名、TLS版本以及HTTPS证书，这样我在开发阶段我们就不需要配置域名，如下图。<br><img src="/images/wxapp/1.png" alt="wxapp"></p>
+<p>但是如果我们想要在手机上预览的话，这样还是调不通这些请求，这时候，有两种解决方法。<br>第一种：手动在手机小程序中，点击右上角菜单栏选择，打开调试模式，重新就如小程序，这样就可以调通接口了，这方法有点麻烦。<br>第二种：我们可以在小程序的配置文件app.json中,添加debug属性，在开发的时候，属性值设为true,生产时，设置为false。<br>最后要谨记，生产版本，域名一定一定要配置好，不然是请求不通的。<br><img src="/images/wxapp/2.png" alt="wxapp"></p>
+<h3 id="wx-request请求"><a href="#wx-request请求" class="headerlink" title="wx.request请求"></a>wx.request请求</h3><p>request请求无论是404，或500的状态码，都会跳进success方法里面，不会跳到fail方法，可以在success方法里面根据statusCode 判断请求结果，当statusCode ==200时，请求成功<br><img src="/images/wxapp/3.png" alt="wxapp"></p>
+<h3 id="图片下载"><a href="#图片下载" class="headerlink" title="图片下载"></a>图片下载</h3><p>图片下载不能使用本地图片，需要使用远程图片<br><img src="/images/wxapp/4.png" alt="wxapp"><br>这时候的url不能是本地相对路径的图片，例如（“/pages/images/a.jpg”）,只能是远程图片例如（’<a href="https://img2.mama100.com/site/mobile/img/swisse-wxapp/21Days/images/code.png&#39;,）" target="_blank" rel="noopener">https://img2.mama100.com/site/mobile/img/swisse-wxapp/21Days/images/code.png&#39;,）</a></p>
+<h3 id="图片自适应"><a href="#图片自适应" class="headerlink" title="图片自适应"></a>图片自适应</h3><p>.图片大小不能自适应例如（style=”width:100%,height:auto;”）height:auto不生效，应该使用mode=”widthFix”属性，（<ig src="../../images/hello.png" mode="widthFix">） 这时候，这需要设置图片的宽度，高度会自适应（style=”width:100px;”）</ig></p>
+<h3 id="wx-showLoading"><a href="#wx-showLoading" class="headerlink" title="wx.showLoading"></a>wx.showLoading</h3><p>使用wx.showLoading提示时，title只能在ios上只能显示7个字，用wx.showModal 代替<br><img src="/images/wxapp/5.png" alt="wxapp"></p>
+<h3 id="在ios某些机型上，。wxml文件不支持三元表达式写法，只能在js文件处理"><a href="#在ios某些机型上，。wxml文件不支持三元表达式写法，只能在js文件处理" class="headerlink" title="在ios某些机型上，。wxml文件不支持三元表达式写法，只能在js文件处理"></a>在ios某些机型上，。wxml文件不支持三元表达式写法，只能在js文件处理</h3><h3 id="formId"><a href="#formId" class="headerlink" title="formId"></a>formId</h3><p>保存formId,(给用户推送小程序信息的时候，需要用户主动生成formId),formId生成方法如下：<br>.wmxl文件<br><img src="/images/wxapp/6.png" alt="wxapp"><br>js文件<br><img src="/images/wxapp/7.png" alt="wxapp"></p>
+<h3 id="页面数量"><a href="#页面数量" class="headerlink" title="页面数量"></a>页面数量</h3><p>小程序只能保存最多内存能保存5个页面，跳转页面时，内存超过5个页面，可以选择wx.redirectTo，或wx.reLaunch销毁之前内存页面，从而释放内存</p>
+<h3 id="下载动态页面"><a href="#下载动态页面" class="headerlink" title="下载动态页面"></a>下载动态页面</h3><p>下载动态页面时，例如下载首页打call页面，这时候就需要选择canvas了，小程序也有提供一套canvasAPI来操作。流程是<br>（1）、使用canvas描绘页面元素<br>（2）、使用wx.canvasToTempFilePath方法，把canvas转成临时图片，保留到内存<br>（3）、使用wx.saveImageToPhotosAlbum方法，把图片保存至手机相册</p>
+<h3 id="分享"><a href="#分享" class="headerlink" title="分享"></a>分享</h3><p>（1）.页面button，open-type=”share”,比如<br>btn open-type=”share”邀请好友参团<br>（2）.页面右上角自带的转发<br>二者统一调用的都是js定义的onShareAppMessage的方法，可以通过参数的from属性判断来源<br><img src="/images/wxapp/8.png" alt="wxapp"></p>
+<h3 id="嵌H5网页"><a href="#嵌H5网页" class="headerlink" title="嵌H5网页"></a>嵌H5网页</h3><p><img src="/images/wxapp/9.png" alt="wxapp"></p>
+<h3 id="授权按钮"><a href="#授权按钮" class="headerlink" title="授权按钮"></a>授权按钮</h3><p>用户拒绝授权后，重新调起授权方法<br> .wmxl文件<br><img src="/images/wxapp/10.png" alt="wxapp"><br>js 文件<br><img src="/images/wxapp/11.png" alt="wxapp"></p>
+<h3 id="this指向问题"><a href="#this指向问题" class="headerlink" title="this指向问题"></a>this指向问题</h3><p>this指针问题，我们在小程序中，会经使用到this去调用Page对象的方法或属性，<br>这时候，在闭包函数里面调用的话，会出现闭包问题，这是this的指向可能就不是Page对象了，解决方法有两个，第一个是在外层定义一个that变量，指向Page对象，闭包函数内部，使用that变量<br><img src="/images/wxapp/12.png" alt="wxapp"><br>第二个使用箭头函数，让this变量指向Page对象<br><img src="/images/wxapp/13.png" alt="wxapp"></p>
+<h3 id="sessionID，openId"><a href="#sessionID，openId" class="headerlink" title="sessionID，openId"></a>sessionID，openId</h3><p>小程序在开始页面的时候，会请求后台，生产sessionID，openId，通过wx.setStorageSync(‘sessionId’, sessionId)方法保存到本地存储，这样，我们在其他的页面就可以在本地存储中获取它的值。小程序在解密微信运动步数的时候，需要提供sessionID，但sessionID是有效期的，它的有效期有后台控制(我们后台设置的是2小时有效期)，当过期的时候，我们就需要重新获取sessionID。具体代码如下：<br><img src="/images/wxapp/14.png" alt="wxapp"><br><img src="/images/wxapp/15.png" alt="wxapp"></p>
+
+      
+    </div>
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/小程序/" rel="tag"># 小程序</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/14/core/" rel="next" title="core">
+                <i class="fa fa-chevron-left"></i> core
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/08/literature-index/" rel="prev" title="literature_index">
+                literature_index <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/blog-logo.jpg"
+                alt="志聪前端之屋" />
+            
+              <p class="site-author-name" itemprop="name">志聪前端之屋</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#微信小程序跳坑指南"><span class="nav-number">1.</span> <span class="nav-text">微信小程序跳坑指南</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#微信小程序越来越火了，最近因为做一个营销活动需要用到小程序形势，所以就安排了一波小程序。其中痛苦并快乐着，为了造福大家，避免大家重复走我走过的坑，现在决定把这套《降龙十八掌》免费传授给各位有缘人。𓀀𓀁𓀂𓀃𓀄𓀅𓀆𓀇𓀈𓀉𓀊𓀋𓀌𓀍𓀎𓀏𓀐𓀑𓀒𓀓𓀔𓀕𓀖𓀗𓀘𓀙𓀚𓀛𓀜"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">微信小程序越来越火了，最近因为做一个营销活动需要用到小程序形势，所以就安排了一波小程序。其中痛苦并快乐着，为了造福大家，避免大家重复走我走过的坑，现在决定把这套《降龙十八掌》免费传授给各位有缘人。𓀀𓀁𓀂𓀃𓀄𓀅𓀆𓀇𓀈𓀉𓀊𓀋𓀌𓀍𓀎𓀏𓀐𓀑𓀒𓀓𓀔𓀕𓀖𓀗𓀘𓀙𓀚𓀛𓀜</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#debug模式"><span class="nav-number">1.0.1.</span> <span class="nav-text">debug模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wx-request请求"><span class="nav-number">1.0.2.</span> <span class="nav-text">wx.request请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图片下载"><span class="nav-number">1.0.3.</span> <span class="nav-text">图片下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图片自适应"><span class="nav-number">1.0.4.</span> <span class="nav-text">图片自适应</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wx-showLoading"><span class="nav-number">1.0.5.</span> <span class="nav-text">wx.showLoading</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在ios某些机型上，。wxml文件不支持三元表达式写法，只能在js文件处理"><span class="nav-number">1.0.6.</span> <span class="nav-text">在ios某些机型上，。wxml文件不支持三元表达式写法，只能在js文件处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#formId"><span class="nav-number">1.0.7.</span> <span class="nav-text">formId</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面数量"><span class="nav-number">1.0.8.</span> <span class="nav-text">页面数量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载动态页面"><span class="nav-number">1.0.9.</span> <span class="nav-text">下载动态页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分享"><span class="nav-number">1.0.10.</span> <span class="nav-text">分享</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌H5网页"><span class="nav-number">1.0.11.</span> <span class="nav-text">嵌H5网页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#授权按钮"><span class="nav-number">1.0.12.</span> <span class="nav-text">授权按钮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#this指向问题"><span class="nav-number">1.0.13.</span> <span class="nav-text">this指向问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sessionID，openId"><span class="nav-number">1.0.14.</span> <span class="nav-text">sessionID，openId</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">志聪前端之屋</span>
+
+  
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>

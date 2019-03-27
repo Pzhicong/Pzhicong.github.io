@@ -250,6 +250,169 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/21/MVVM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="志聪前端之屋">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/blog-logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="志聪前端之屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/21/MVVM/" itemprop="url">MVVM</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-21T11:02:02+08:00">
+                2019-03-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="双向绑定白话版-angualrjs-vs-vue"><a href="#双向绑定白话版-angualrjs-vs-vue" class="headerlink" title="双向绑定白话版(angualrjs vs vue)"></a>双向绑定白话版(angualrjs vs vue)</h1><p></p><p></p><br><img src="/images/mvvm/index.png" alt="vue-mvvm"><p></p>
+<h2 id="单双向绑定原理"><a href="#单双向绑定原理" class="headerlink" title="单双向绑定原理"></a>单双向绑定原理</h2><p>双向数据绑定无非就是在单向绑定的基础上给可输入元素（input、textare等）添加了change(input)事件，来动态修改model和 view，</p>
+<h2 id="vue双向绑定"><a href="#vue双向绑定" class="headerlink" title="vue双向绑定"></a>vue双向绑定</h2><ol>
+<li>通过Object.defineProperty方法实现对数据的劫持，在每一个劫持的数据里面添加一个消息订阅器，维护一个数组，用来收集订阅者。</li>
+<li>订阅者(Watcher)是在解析模板指令的时候，每解析一个创建一个,Watcher，作为连接Observer和Compile的桥梁，能够订阅并收到每个属性变动的通知，执行指令绑定的相应回调函数，从而更新视图</li>
+<li>数据代理</li>
+</ol>
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p><a href="https://segmentfault.com/a/1190000006599500?utm_source=tag-newest#articleHeader6" target="_blank" rel="noopener">segmentfault</a></p>
+<h2 id="angularjs脏检查"><a href="#angularjs脏检查" class="headerlink" title="angularjs脏检查"></a>angularjs脏检查</h2><h3 id="脏检查触发条件"><a href="#脏检查触发条件" class="headerlink" title="脏检查触发条件"></a>脏检查触发条件</h3><ol>
+<li>DOM事件，譬如用户输入文本，点击按钮等。( ng-click )</li>
+<li>XHR响应事件 ( $http )</li>
+<li>浏览器Location变更事件 ( $location )</li>
+<li>Timer事件( $timeout , $interval )</li>
+<li>执行 $digest() 或 $apply()</li>
+</ol>
+<h3 id="angularjs绑定流程"><a href="#angularjs绑定流程" class="headerlink" title="angularjs绑定流程"></a>angularjs绑定流程</h3><p>Angular 每一个绑定到UI的数据，就会有一个 $watch 对象,这个对象会被push到watchList中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">watch = &#123;</span><br><span class="line">    name:&apos;&apos;,      //当前的watch 对象 观测的数据名</span><br><span class="line">    getNewValue:function($scope)&#123; //可以得到当前$scope 上的最新值</span><br><span class="line">    ...</span><br><span class="line">    return newValue;</span><br><span class="line">    &#125;,</span><br><span class="line">    listener:function(newValue,oldValue)&#123;  // 当数据发生改变时需要执行的操作</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$scope.prototype.$watch = function(name,getNewValue,listener)&#123;</span><br><span class="line">    var watch = &#123;</span><br><span class="line">       name:name,</span><br><span class="line">       getNewValue : getNewValue,</span><br><span class="line">       listener : listener || function()&#123;&#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    this.$$watchList.push(watch);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var scope = new $scope();</span><br><span class="line">scope.hello = 10;</span><br><span class="line">scope.$watch(&apos;hello&apos;, function(scope) &#123;</span><br><span class="line">    // 注意，要理解这里的this ，这个函数实际是  var newValue = watch.getNewValue(this); 这样调用，那么 this 就指的是当前监听器watch，所以可以得到name</span><br><span class="line">        return scope[this.name]</span><br><span class="line">    &#125;,</span><br><span class="line">    function(newValue, oldValue) &#123;</span><br><span class="line">        console.log(&apos;newValue:&apos; + newValue + &apos;~~~~&apos; + &apos;oldValue:&apos; + oldValue);</span><br><span class="line">    &#125;)</span><br><span class="line">scope.$digest();</span><br><span class="line">scope.hello = 10;</span><br><span class="line">scope.$digest();</span><br><span class="line">scope.hello = 20;</span><br><span class="line">scope.$digest();</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$scope.prototype.$digest = function()&#123;</span><br><span class="line">    var list = this.$$watchList;</span><br><span class="line">    for(var i = 0,l= list.length;i++)&#123;</span><br><span class="line">        var watch = list[i];</span><br><span class="line">        var newValue = watch.getNewValue(this);</span><br><span class="line">        // 在第一次渲染界面,进行一个数据呈现.</span><br><span class="line">        var oldValue = watch.last;</span><br><span class="line">        if(newValue!=oldValue)&#123;</span><br><span class="line">            watch.listener(newValue,oldValue);</span><br><span class="line">        &#125;</span><br><span class="line">        watch.last = newValue;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="引用-1"><a href="#引用-1" class="headerlink" title="引用"></a>引用</h3><p><a href="https://www.cnblogs.com/likeFlyingFish/p/6183630.html" target="_blank" rel="noopener">cnblogs</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/14/layout/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1669,153 +1832,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/29/corCookies/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="志聪前端之屋">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/blog-logo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="志聪前端之屋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/29/corCookies/" itemprop="url">koa2跨域设置cookies</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-29T13:34:32+08:00">
-                2018-04-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          当我们需要跨域设置cookies的时候。一般的，是设置不进去的，浏览器即使接受到setCookies请求，但实际上没有设置进去，所以在其他请求的时候，也不会带上。这时候，就需要我们设置一下请求参数了。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/29/corCookies/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1870,7 +1886,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1892,7 +1908,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
